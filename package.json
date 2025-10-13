@@ -1,0 +1,17 @@
+{
+  "name": "bankersden-fullstack",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "install-all": "npm install && cd client && npm install && cd ../backend && npm install",
+    "dev": "concurrently \"npm run client:dev\" \"npm run backend:dev\"",
+    "client:dev": "cd client && npm run dev",
+    "client:build": "cd client && npm run build",
+    "backend:dev": "cd backend && npm run dev",
+    "backend:start": "cd backend && npm run start",
+    "build": "cd client && npm run build"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
