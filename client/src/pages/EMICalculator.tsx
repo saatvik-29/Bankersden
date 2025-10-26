@@ -83,8 +83,17 @@ export const EMICalculator = () => {
                   onChange={(e) => setLoanAmount(Number(e.target.value))}
                   className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-blue-600"
                 />
-                <div className="flex justify-between text-xs text-gray-500 mt-1">
+                <div className="flex justify-between items-center text-xs text-gray-500 mt-2">
                   <span>₹10K</span>
+                  <input
+                    type="number"
+                    min="10000"
+                    max="10000000"
+                    step="10000"
+                    value={loanAmount}
+                    onChange={(e) => setLoanAmount(Number(e.target.value) || 10000)}
+                    className="w-24 px-2 py-1 text-center border border-gray-300 rounded text-gray-700 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
                   <span>₹1Cr</span>
                 </div>
               </div>
@@ -103,8 +112,17 @@ export const EMICalculator = () => {
                   onChange={(e) => setInterestRate(Number(e.target.value))}
                   className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-blue-600"
                 />
-                <div className="flex justify-between text-xs text-gray-500 mt-1">
+                <div className="flex justify-between items-center text-xs text-gray-500 mt-2">
                   <span>5%</span>
+                  <input
+                    type="number"
+                    min="5"
+                    max="30"
+                    step="0.1"
+                    value={interestRate}
+                    onChange={(e) => setInterestRate(Number(e.target.value) || 5)}
+                    className="w-16 px-2 py-1 text-center border border-gray-300 rounded text-gray-700 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
                   <span>30%</span>
                 </div>
               </div>
@@ -125,8 +143,17 @@ export const EMICalculator = () => {
                   onChange={(e) => setTenure(Number(e.target.value))}
                   className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-blue-600"
                 />
-                <div className="flex justify-between text-xs text-gray-500 mt-1">
+                <div className="flex justify-between items-center text-xs text-gray-500 mt-2">
                   <span>6 Months</span>
+                  <input
+                    type="number"
+                    min="6"
+                    max="360"
+                    step="6"
+                    value={tenure}
+                    onChange={(e) => setTenure(Number(e.target.value) || 6)}
+                    className="w-16 px-2 py-1 text-center border border-gray-300 rounded text-gray-700 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
                   <span>30 Years</span>
                 </div>
               </div>

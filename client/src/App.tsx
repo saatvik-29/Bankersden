@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
+import { Chatbot } from './components/Chatbot';
 import { Home } from './pages/Home';
 import { HomeLoan } from './pages/loans/HomeLoan';
 import { PersonalLoan } from './pages/loans/PersonalLoan';
@@ -19,6 +20,8 @@ import { Contact } from './pages/Contact';
 import { Terms } from './pages/Terms';
 import { Privacy } from './pages/Privacy';
 import { Disclaimer } from './pages/Disclaimer';
+import { AdminLogin } from './pages/AdminLogin';
+import { AdminDashboard } from './pages/AdminDashboard';
 
 const AppRoutes = () => {
   return (
@@ -51,9 +54,14 @@ const AppRoutes = () => {
             <Route path="/terms" element={<Terms />} />
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/disclaimer" element={<Disclaimer />} />
+            
+            {/* Admin Routes */}
+            <Route path="/admin/login" element={<AdminLogin />} />
+            <Route path="/admin/dashboard" element={<AdminDashboard />} />
           </Routes>
         </main>
         <Footer />
+        <Chatbot />
       </div>
     </BrowserRouter>
   );

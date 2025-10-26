@@ -3,13 +3,17 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
+    "setup": "node setup.js",
     "install-all": "npm install && cd client && npm install && cd ../backend && npm install",
     "dev": "concurrently \"npm run client:dev\" \"npm run backend:dev\"",
     "client:dev": "cd client && npm run dev",
     "client:build": "cd client && npm run build",
     "backend:dev": "cd backend && npm run dev",
     "backend:start": "cd backend && npm run start",
-    "build": "cd client && npm run build"
+    "build": "npm run client:build",
+    "start": "npm run build && npm run backend:start",
+    "production": "npm run install-all && npm run build && npm run backend:start",
+    "seed": "cd backend && node seedData.js"
   },
   "devDependencies": {
     "concurrently": "^8.2.2"
