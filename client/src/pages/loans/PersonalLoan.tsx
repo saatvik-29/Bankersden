@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { Button } from '../../components/Button';
+import { PersonalLoanHero } from '../../components/PersonalLoanHero';
 import { 
   User, 
   CheckCircle,
@@ -22,70 +23,8 @@ export const PersonalLoan = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
-      <div className="bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <div className="flex items-center mb-6">
-                <div className="w-16 h-16 bg-green-500 rounded-xl flex items-center justify-center mr-4">
-                  <User className="w-8 h-8 text-white" />
-                </div>
-                <div>
-                  <h1 className="text-4xl font-bold text-gray-900">Personal Loan</h1>
-                  <p className="text-lg text-gray-600">Personal Finance</p>
-                </div>
-              </div>
-              <p className="text-xl text-gray-700 mb-8">
-                Quick personal loans up to ₹25 lakhs with minimal documentation. 
-                Perfect for your immediate financial needs with instant approval.
-              </p>
-              <div className="flex flex-wrap gap-4 mb-8">
-                <div className="bg-blue-50 px-4 py-2 rounded-lg">
-                  <span className="text-sm text-blue-600 font-medium">Interest Rate</span>
-                  <p className="text-2xl font-bold text-blue-900">10.5% - 24.0% p.a.</p>
-                </div>
-                <div className="bg-green-50 px-4 py-2 rounded-lg">
-                  <span className="text-sm text-green-600 font-medium">Loan Amount</span>
-                  <p className="text-2xl font-bold text-green-900">₹50K - ₹25L</p>
-                </div>
-                <div className="bg-purple-50 px-4 py-2 rounded-lg">
-                  <span className="text-sm text-purple-600 font-medium">Tenure</span>
-                  <p className="text-2xl font-bold text-purple-900">1 - 5 years</p>
-                </div>
-              </div>
-              <Button onClick={handleApplyNow} size="lg" className="w-full lg:w-auto">
-                Apply Now <ArrowRight className="w-5 h-5 ml-2" />
-              </Button>
-            </div>
-            <div className="bg-gradient-to-br from-green-50 to-emerald-100 rounded-2xl p-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">EMI Calculator</h3>
-              <div className="space-y-4">
-                <div className="flex justify-between items-center">
-                  <span className="text-gray-600">Loan Amount:</span>
-                  <span className="font-semibold">₹5,00,000</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-gray-600">Tenure:</span>
-                  <span className="font-semibold">3 years</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-gray-600">Interest Rate:</span>
-                  <span className="font-semibold">15.0% p.a.</span>
-                </div>
-                <hr className="my-4" />
-                <div className="flex justify-between items-center">
-                  <span className="text-lg font-semibold text-gray-900">Monthly EMI:</span>
-                  <span className="text-2xl font-bold text-green-600">₹17,333</span>
-                </div>
-              </div>
-              <Button variant="outline" className="w-full mt-6" onClick={() => navigate('/emi-calculator')}>
-                Calculate Your EMI
-              </Button>
-            </div>
-          </div>
-        </div>
-      </div>
+      {/* Hero Section with Animations */}
+      <PersonalLoanHero />
 
       {/* Features Section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">

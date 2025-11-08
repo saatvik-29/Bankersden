@@ -6,13 +6,10 @@ import {
   Car,
   GraduationCap,
   Building2,
-  Coins,
-  CreditCard,
   Shield,
   TrendingUp,
   Users,
   Award,
-  CheckCircle,
   ArrowRight,
   Star,
   ChevronLeft,
@@ -23,6 +20,10 @@ import {
   DollarSign,
 } from 'lucide-react';
 import { Button } from '../components/Button';
+import { FAQ } from '../components/FAQ';
+import { FloatingElements } from '../components/AnimatedGraphics';
+import { LoanCardAnimation, CalculatorSideAnimation } from '../components/LottieStyleAnimations';
+
 
 interface Testimonial {
   id: string;
@@ -33,23 +34,14 @@ interface Testimonial {
   testimonial_text: string;
 }
 
-interface PartnerBank {
-  id: string;
-  bank_name: string;
-  logo_url: string;
-}
+
 
 export const Home = () => {
   const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
-  const [partnerBanks, setPartnerBanks] = useState<PartnerBank[]>([]);
+
   const [currentHeroCard, setCurrentHeroCard] = useState(0);
 
-  useEffect(() => {
-    fetchTestimonials();
-    fetchPartnerBanks();
-  }, []);
-
-  // Hero cards data
+  // Hero cards data - moved before useEffect
   const heroCards = [
     {
       title: "Personal Loans",
@@ -59,7 +51,7 @@ export const Home = () => {
       gradient: "from-primary-600 to-primary-700",
       buttonText: "Apply Now",
       buttonLink: "/loans/personal",
-      stats: { label: "Loans Disbursed", value: "₹10,000+ Cr" }
+      stats: { label: "Interest Rate", value: "8.5% p.a." }
     },
     {
       title: "Home Loans",
@@ -69,7 +61,7 @@ export const Home = () => {
       gradient: "from-secondary-600 to-secondary-700",
       buttonText: "Explore Home Loans",
       buttonLink: "/loans/home",
-      stats: { label: "Happy Customers", value: "5 Lakh+" }
+      stats: { label: "Loan Amount", value: "Up to ₹5 Cr" }
     },
     {
       title: "Business Loans",
@@ -79,9 +71,22 @@ export const Home = () => {
       gradient: "from-accent-600 to-accent-700",
       buttonText: "Get Business Loan",
       buttonLink: "/loans/business",
-      stats: { label: "Cities Covered", value: "4,000+" }
+      stats: { label: "Approval Time", value: "24-48 Hours" }
     }
   ];
+
+  useEffect(() => {
+    fetchTestimonials();
+  }, []);
+
+  // Auto-swipe disabled - manual navigation only
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setCurrentHeroCard((prev) => (prev + 1) % heroCards.length);
+  //   }, 5000);
+  //   
+  //   return () => clearInterval(interval);
+  // }, [heroCards.length]);
 
   const nextCard = () => {
     setCurrentHeroCard((prev) => (prev + 1) % heroCards.length);
@@ -96,46 +101,33 @@ export const Home = () => {
     const staticTestimonials: Testimonial[] = [
       {
         id: '1',
-        customer_name: 'Priya Sharma',
-        customer_city: 'Mumbai',
+        customer_name: 'Piyush Bhujbal',
+        customer_city: 'Pune',
         loan_type: 'Home Loan',
         rating: 5,
-        testimonial_text: 'BankersDen made my home loan process so smooth. The team was professional and helped me get the best rate.'
+        testimonial_text: 'I had an amazing experience with this company. The customer service is best. They solve your queries immediately. I highly recommend them to anyone looking for Home Loan and excellent service.'
       },
       {
         id: '2',
-        customer_name: 'Rajesh Kumar',
-        customer_city: 'Delhi',
+        customer_name: 'Kishor Pokharkar',
+        customer_city: 'Mumbai',
         loan_type: 'Personal Loan',
         rating: 5,
-        testimonial_text: 'Quick approval and competitive rates. Got my personal loan approved within 24 hours. Highly recommended!'
+        testimonial_text: 'The overall experience with bankers den services was good. The process was completed as expected, and the staff provided proper guidance. I look forward to even faster communication in future interactions.'
       },
       {
         id: '3',
-        customer_name: 'Sneha Patel',
-        customer_city: 'Bangalore',
+        customer_name: 'Nikhil Pardeshi',
+        customer_city: 'Pune',
         loan_type: 'Business Loan',
         rating: 5,
-        testimonial_text: 'Excellent service for my business expansion. The loan officer was very knowledgeable and helpful.'
+        testimonial_text: 'Banker\'s den team is indeed good. Support staff for operations is well disciplined and do have proper knowledge about loan processes. Ms Mayuri and Ms Sonal from their team coordinates very well both with clients and Bank authorities for smooth and perfect execution.'
       }
     ];
     setTestimonials(staticTestimonials);
   };
 
-  const fetchPartnerBanks = async () => {
-    // Static partner banks data
-    const staticBanks: PartnerBank[] = [
-      { id: '1', bank_name: 'HDFC Bank', logo_url: '/logos/hdfc.png' },
-      { id: '2', bank_name: 'ICICI Bank', logo_url: '/logos/icici.png' },
-      { id: '3', bank_name: 'SBI', logo_url: '/logos/sbi.png' },
-      { id: '4', bank_name: 'Axis Bank', logo_url: '/logos/axis.png' },
-      { id: '5', bank_name: 'Kotak Mahindra', logo_url: '/logos/kotak.png' },
-      { id: '6', bank_name: 'Yes Bank', logo_url: '/logos/yes.png' },
-      { id: '7', bank_name: 'IndusInd Bank', logo_url: '/logos/indusind.png' },
-      { id: '8', bank_name: 'Federal Bank', logo_url: '/logos/federal.png' }
-    ];
-    setPartnerBanks(staticBanks);
-  };
+
 
   const loanProducts = [
     {
@@ -174,10 +166,10 @@ export const Home = () => {
       color: 'bg-secondary-100 text-secondary-600',
     },
     {
-      icon: Coins,
-      title: 'Gold Loan',
-      description: 'Get instant cash against your gold with attractive interest rates.',
-      link: '/loans/gold',
+      icon: Building2,
+      title: 'Loan Against Property',
+      description: 'Unlock the value of your property with competitive interest rates.',
+      link: '/loans/property',
       color: 'bg-accent-100 text-accent-600',
     },
   ];
@@ -190,8 +182,8 @@ export const Home = () => {
     },
     {
       icon: Users,
-      title: '275+ Bank Partners',
-      description: 'Access to a wide network of trusted financial institutions.',
+      title: 'Expert Guidance',
+      description: 'Personalized advice from experienced financial consultants.',
     },
     {
       icon: Award,
@@ -209,13 +201,13 @@ export const Home = () => {
     {
       number: '1',
       title: 'Choose Your Product',
-      description: 'Select from loans, credit cards, or insurance products.',
+      description: 'Select from our wide range of loan and financial products.',
       icon: Calculator,
     },
     {
       number: '2',
-      title: 'Fill Application',
-      description: 'Complete a simple online application form.',
+      title: 'Consult with Us',
+      description: 'Our experts will guide you through the entire process and help you get it done.',
       icon: FileText,
     },
     {
@@ -235,7 +227,9 @@ export const Home = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section with Cards */}
-      <section className="bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800 text-white py-20 relative overflow-hidden">
+      <section className="bg-blue-600 text-white py-24 relative overflow-hidden">
+        {/* Animated Background Elements */}
+        <FloatingElements />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
           <div className="text-center mb-12">
@@ -243,7 +237,7 @@ export const Home = () => {
               Your Trusted Financial Partner
             </h1>
             <p className="text-xl mb-8 text-primary-100 max-w-3xl mx-auto">
-              Get the best deals on loans, credit cards, and insurance. Compare offers from 275+ banks and NBFCs in one place.
+              Get the best deals on loans with competitive rates. Compare offers from 275+ banks and NBFCs in one place.
             </p>
           </div>
 
@@ -257,7 +251,7 @@ export const Home = () => {
               >
                 {heroCards.map((card, index) => (
                   <div key={index} className="w-full flex-shrink-0">
-                    <div className={`bg-gradient-to-br ${card.gradient} rounded-2xl p-8 md:p-12 text-white shadow-2xl`}>
+                    <div className="bg-white/10 backdrop-blur-md rounded-3xl p-8 md:p-12 text-white shadow-2xl border border-white/20 hover:bg-white/15 transition-all duration-500 animate-card-float">
                       <div className="grid lg:grid-cols-2 gap-8 items-center">
                         {/* Content */}
                         <div className="animate-fade-in">
@@ -291,31 +285,24 @@ export const Home = () => {
                           </div>
                         </div>
 
-                        {/* Quick Form */}
+                        {/* Animated Graphics */}
                         <div className="hidden lg:block animate-slide-in">
-                          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
-                            <h3 className="text-2xl font-semibold mb-6">Quick Eligibility Check</h3>
-                            <div className="space-y-4">
-                              <input
-                                type="text"
-                                placeholder="Full Name"
-                                className="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 placeholder-white/60 text-white focus:outline-none focus:ring-2 focus:ring-white/50"
-                              />
-                              <input
-                                type="tel"
-                                placeholder="Mobile Number"
-                                className="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 placeholder-white/60 text-white focus:outline-none focus:ring-2 focus:ring-white/50"
-                              />
-                              <select className="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white focus:outline-none focus:ring-2 focus:ring-white/50">
-                                <option value="">Select Loan Type</option>
-                                <option value="home">Home Loan</option>
-                                <option value="personal">Personal Loan</option>
-                                <option value="business">Business Loan</option>
-                              </select>
-                              <Button className="w-full" size="lg" variant="secondary">
-                                Check Eligibility
-                              </Button>
+                          <div className="text-center mb-8">
+                            {index === 0 && <LoanCardAnimation type="personal" />}
+                            {index === 1 && <LoanCardAnimation type="home" />}
+                            {index === 2 && <LoanCardAnimation type="business" />}
+                          </div>
+                          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 text-center">
+                            <div className="mb-6">
+                              <CalculatorSideAnimation />
                             </div>
+                            <h3 className="text-2xl font-semibold mb-4">Ready to Calculate?</h3>
+                            <p className="text-white/80 mb-6">Use our advanced calculators to plan your financial journey</p>
+                            <Link to="/calculators">
+                              <button className="bg-white text-blue-600 px-8 py-3 rounded-xl font-semibold hover:bg-blue-50 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                                Open Calculators
+                              </button>
+                            </Link>
                           </div>
                         </div>
                       </div>
@@ -359,16 +346,16 @@ export const Home = () => {
           {/* Additional Stats */}
           <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
             <div className="text-center">
-              <div className="text-3xl font-bold">₹10,000+ Cr</div>
-              <div className="text-primary-200 text-sm">Loans Disbursed</div>
+              <div className="text-3xl font-bold">275+ Banks</div>
+              <div className="text-primary-200 text-sm">Partner Network</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold">5 Lakh+</div>
-              <div className="text-primary-200 text-sm">Happy Customers</div>
+              <div className="text-3xl font-bold">24-48 Hours</div>
+              <div className="text-primary-200 text-sm">Quick Approval</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold">4,000+</div>
-              <div className="text-primary-200 text-sm">Cities Covered</div>
+              <div className="text-3xl font-bold">100% Secure</div>
+              <div className="text-primary-200 text-sm">Safe & Trusted</div>
             </div>
           </div>
         </div>
@@ -384,115 +371,89 @@ export const Home = () => {
               Choose from a wide range of financial solutions tailored to your needs
             </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {loanProducts.map((product, index) => (
               <Link
                 key={index}
                 to={product.link}
-                className="bg-white border border-secondary-200 rounded-xl p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 hover:border-primary-300"
+                className="group bg-white/90 backdrop-blur-sm border border-primary-200 rounded-2xl p-8 hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 hover:border-primary-400 animate-bounce-in hover:bg-white"
+                style={{animationDelay: `${index * 0.1}s`}}
               >
-                <div className={`w-14 h-14 rounded-lg ${product.color} flex items-center justify-center mb-4`}>
-                  <product.icon className="w-7 h-7" />
+                <div className="w-16 h-16 rounded-2xl bg-blue-500 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg group-hover:bg-purple-500">
+                  <product.icon className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-xl font-semibold text-secondary-900 mb-2">
+                <h3 className="text-2xl font-bold text-primary-900 mb-3 group-hover:text-blue-600 transition-colors">
                   {product.title}
                 </h3>
-                <p className="text-secondary-600 mb-4">{product.description}</p>
-                <div className="flex items-center text-primary-600 font-semibold">
-                  Apply Now <ArrowRight className="w-4 h-4 ml-2" />
+                <p className="text-primary-600 mb-6 leading-relaxed group-hover:text-primary-700 transition-colors">{product.description}</p>
+                <div className="flex items-center text-blue-600 font-semibold group-hover:text-purple-600 transition-colors">
+                  Apply Now <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-2 transition-transform" />
                 </div>
               </Link>
             ))}
           </div>
 
-          <div className="mt-8 grid md:grid-cols-2 gap-6">
-            <Link
-              to="/credit-cards"
-              className="bg-gradient-to-r from-secondary-800 to-secondary-900 text-white rounded-xl p-8 hover:shadow-xl transition-all hover:-translate-y-1"
-            >
-              <CreditCard className="w-12 h-12 mb-4" />
-              <h3 className="text-2xl font-bold mb-2">Credit Cards</h3>
-              <p className="text-secondary-300 mb-4">
-                Compare and apply for credit cards with the best rewards and benefits
-              </p>
-              <div className="flex items-center font-semibold">
-                Explore Cards <ArrowRight className="w-4 h-4 ml-2" />
-              </div>
-            </Link>
-            <Link
-              to="/insurance"
-              className="bg-gradient-to-r from-accent-600 to-accent-700 text-white rounded-xl p-8 hover:shadow-xl transition-all hover:-translate-y-1"
-            >
-              <Shield className="w-12 h-12 mb-4" />
-              <h3 className="text-2xl font-bold mb-2">Insurance</h3>
-              <p className="text-accent-100 mb-4">
-                Protect yourself and your family with comprehensive insurance plans
-              </p>
-              <div className="flex items-center font-semibold">
-                Get Insured <ArrowRight className="w-4 h-4 ml-2" />
-              </div>
-            </Link>
-          </div>
+
         </div>
       </section>
 
-      <section className="py-16 bg-secondary-50">
+      <section className="py-20 bg-primary-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-secondary-900 mb-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-primary-900 mb-6">
               Why Choose BankersDen?
             </h2>
-            <p className="text-xl text-secondary-600">
+            <p className="text-xl text-primary-600 max-w-2xl mx-auto">
               We make your financial journey simple and hassle-free
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {features.map((feature, index) => (
-              <div key={index} className="text-center">
-                <div className="w-16 h-16 bg-primary-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
-                  <feature.icon className="w-8 h-8" />
+              <div key={index} className="text-center bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 animate-bounce-in" style={{animationDelay: `${index * 0.1}s`}}>
+                <div className="w-20 h-20 bg-blue-500 text-white rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-xl hover:bg-purple-500 transition-colors duration-300 animate-float" style={{animationDelay: `${index * 0.2}s`}}>
+                  <feature.icon className="w-10 h-10" />
                 </div>
-                <h3 className="text-xl font-semibold text-secondary-900 mb-2">
+                <h3 className="text-xl font-bold text-primary-900 mb-3">
                   {feature.title}
                 </h3>
-                <p className="text-secondary-600">{feature.description}</p>
+                <p className="text-primary-600 leading-relaxed">{feature.description}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="py-16 bg-white">
+      <section className="py-20 bg-primary-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-secondary-900 mb-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-primary-900 mb-6">
               How It Works
             </h2>
-            <p className="text-xl text-secondary-600">
+            <p className="text-xl text-primary-600 max-w-2xl mx-auto">
               Get your loan approved in 4 simple steps
             </p>
           </div>
           <div className="grid md:grid-cols-4 gap-8">
             {steps.map((step, index) => (
-              <div key={index} className="text-center relative">
+              <div key={index} className="text-center relative animate-bounce-in" style={{animationDelay: `${index * 0.1}s`}}>
                 {/* Step Circle */}
                 <div className="relative z-10">
-                  <div className="w-20 h-20 bg-gradient-to-br from-primary-500 to-primary-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg border-4 border-white">
-                    <step.icon className="w-8 h-8" />
+                  <div className="w-24 h-24 bg-blue-500 text-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-xl hover:bg-purple-500 transition-colors duration-300 animate-float" style={{animationDelay: `${index * 0.3}s`}}>
+                    <step.icon className="w-10 h-10" />
                   </div>
                 </div>
                 
                 {/* Content */}
-                <h3 className="text-xl font-semibold text-secondary-900 mb-2">
+                <h3 className="text-xl font-bold text-primary-900 mb-3">
                   {step.title}
                 </h3>
-                <p className="text-secondary-600">{step.description}</p>
+                <p className="text-primary-600 leading-relaxed">{step.description}</p>
                 
-                {/* Animated Glowing Line */}
+                {/* Animated Connecting Line */}
                 {index < steps.length - 1 && (
-                  <div className="hidden md:block absolute top-10 left-1/2 w-full h-0.5 overflow-hidden">
-                    <div className="absolute inset-0 bg-secondary-200"></div>
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary-400 to-transparent opacity-0 animate-glow-move"></div>
+                  <div className="hidden md:block absolute top-12 left-1/2 w-full h-1 overflow-hidden">
+                    <div className="absolute inset-0 bg-blue-200"></div>
+                    <div className="absolute inset-0 bg-blue-500 opacity-0 animate-glow-move"></div>
                   </div>
                 )}
               </div>
@@ -502,28 +463,37 @@ export const Home = () => {
       </section>
 
       {testimonials.length > 0 && (
-        <section className="py-16 bg-secondary-50">
+        <section className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-secondary-900 mb-4">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold text-primary-900 mb-6">
                 What Our Customers Say
               </h2>
-              <p className="text-xl text-secondary-600">
-                Real stories from real people
+              <p className="text-xl text-primary-600 max-w-2xl mx-auto">
+                Real stories from real people who trusted us with their financial journey
               </p>
             </div>
             <div className="grid md:grid-cols-3 gap-8">
-              {testimonials.map((testimonial) => (
-                <div key={testimonial.id} className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow">
-                  <div className="flex mb-4">
+              {testimonials.map((testimonial, index) => (
+                <div 
+                  key={testimonial.id} 
+                  className="group bg-primary-50 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-blue-100 hover:border-blue-300 animate-fade-in-up"
+                  style={{animationDelay: `${index * 0.2}s`}}
+                >
+                  <div className="flex mb-6 group-hover:scale-110 transition-transform duration-300">
                     {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="w-5 h-5 text-accent-400 fill-current" />
+                      <Star key={i} className="w-6 h-6 text-yellow-400 fill-current" />
                     ))}
                   </div>
-                  <p className="text-secondary-700 mb-4 italic">"{testimonial.testimonial_text}"</p>
-                  <div>
-                    <div className="font-semibold text-secondary-900">{testimonial.customer_name}</div>
-                    <div className="text-sm text-secondary-600">{testimonial.customer_city}</div>
+                  <p className="text-primary-700 mb-6 italic text-lg leading-relaxed group-hover:text-primary-800 transition-colors">
+                    "{testimonial.testimonial_text}"
+                  </p>
+                  <div className="border-t border-blue-200 pt-4 group-hover:border-blue-300 transition-colors">
+                    <div className="font-bold text-primary-900 text-lg group-hover:text-blue-600 transition-colors">
+                      {testimonial.customer_name}
+                    </div>
+                    <div className="text-primary-600 font-medium">{testimonial.customer_city}</div>
+                    <div className="text-blue-600 text-sm font-semibold mt-1">{testimonial.loan_type}</div>
                   </div>
                 </div>
               ))}
@@ -532,52 +502,39 @@ export const Home = () => {
         </section>
       )}
 
-      {partnerBanks.length > 0 && (
-        <section className="py-16 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-secondary-900 mb-4">
-                Our Partner Banks & NBFCs
-              </h2>
-              <p className="text-xl text-secondary-600">
-                Trusted by leading financial institutions across India
-              </p>
-            </div>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-              {partnerBanks.map((bank) => (
-                <div
-                  key={bank.id}
-                  className="flex items-center justify-center p-6 bg-secondary-50 rounded-lg hover:bg-secondary-100 transition-colors"
-                >
-                  <span className="text-lg font-semibold text-secondary-700">{bank.bank_name}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
 
-      <section className="py-16 bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800 text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+
+
+
+      {/* FAQ Section */}
+      <FAQ />
+
+      <section className="py-24 bg-blue-600 text-white relative overflow-hidden">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <h2 className="text-4xl md:text-6xl font-bold mb-6 animate-fade-in-up">
             Ready to Get Started?
           </h2>
-          <p className="text-xl mb-8 text-primary-100">
+          <p className="text-xl md:text-2xl mb-12 text-blue-100 max-w-3xl mx-auto animate-fade-in-up" style={{animationDelay: '0.2s'}}>
             Join thousands of satisfied customers and get the best financial products today
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-6 justify-center animate-fade-in-up" style={{animationDelay: '0.4s'}}>
             <Link to="/loans/personal">
-              <Button size="lg" variant="secondary" className="bg-white text-primary-600 hover:bg-primary-50">
+              <button className="bg-white text-blue-600 px-10 py-4 rounded-xl font-semibold hover:bg-blue-50 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 text-lg">
                 Apply for Loan
-              </Button>
+              </button>
             </Link>
             <Link to="/contact">
-              <Button size="lg" variant="outline" className="bg-transparent text-white border-white hover:bg-white/10">
+              <button className="bg-transparent border-2 border-white text-white px-10 py-4 rounded-xl font-semibold hover:bg-white hover:text-blue-600 transition-all duration-300 text-lg">
                 Contact Us
-              </Button>
+              </button>
             </Link>
           </div>
         </div>
+        
+        {/* Floating Elements */}
+        <div className="absolute top-20 left-10 w-20 h-20 bg-purple-400/20 rounded-full animate-float"></div>
+        <div className="absolute bottom-20 right-10 w-32 h-32 bg-blue-400/20 rounded-full animate-float" style={{animationDelay: '1s'}}></div>
+        <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-white/10 rounded-full animate-float" style={{animationDelay: '2s'}}></div>
       </section>
     </div>
   );

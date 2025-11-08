@@ -12,11 +12,23 @@ const chatDataSchema = new mongoose.Schema({
   },
   content: {
     type: String,
-    required: true
+    required: function() {
+      return this.type === 'paragraph';
+    }
   },
   // For Q&A pairs
-  question: String,
-  answer: String,
+  question: {
+    type: String,
+    required: function() {
+      return this.type === 'qa';
+    }
+  },
+  answer: {
+    type: String,
+    required: function() {
+      return this.type === 'qa';
+    }
+  },
   
   isActive: {
     type: Boolean,

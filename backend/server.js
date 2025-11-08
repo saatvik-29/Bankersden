@@ -287,6 +287,66 @@ app.post('/api/loan-application', async (req, res) => {
   }
 });
 
+// BD Partner application endpoint
+app.post('/api/bd-partner-application', async (req, res) => {
+  try {
+    const { fullName, email, phone, city, experience, currentOccupation, whyJoin, expectedEarnings } = req.body;
+    const applicationNumber = `BD${Date.now()}`;
+
+    // Save to database
+    const lead = new Lead({
+      applicationNumber,
+      type: 'bd-partner',
+      full_name: fullName,
+      email,
+      phone,
+      city,
+      experience,
+      currentOccupation,
+      whyJoin,
+      expectedEarnings,
+      status: 'active'
+    });
+    await lead.save();
+
+    // Send admin notification
+    const adminTemplate = adminTemplates.newBDPartnerApplication({
+      fullName, email, phone, city, experience, currentOccupation, whyJoin, expectedEarnings
+    }, applicationNumber);
+    const adminMailOptions = {
+      from: smtpConfig.user,
+      to: smtpConfig.adminEmail,
+      subject: adminTemplate.subject,
+      html: adminTemplate.html,
+    };
+
+    // Send client confirmation
+    const clientTemplate = clientTemplates.bdPartnerConfirmation({
+      fullName, email, phone, city, experience, currentOccupation, whyJoin, expectedEarnings, applicationNumber
+    });
+    const clientMailOptions = {
+      from: smtpConfig.user,
+      to: email,
+      subject: clientTemplate.subject,
+      html: clientTemplate.html,
+    };
+
+    await Promise.all([
+      emailService.sendEmail(adminMailOptions),
+      emailService.sendEmail(clientMailOptions)
+    ]);
+
+    res.json({ 
+      success: true, 
+      message: 'BD Partner application submitted successfully',
+      applicationNumber 
+    });
+  } catch (error) {
+    console.error('Error submitting BD Partner application:', error);
+    res.status(500).json({ success: false, message: 'Failed to submit application' });
+  }
+});
+
 // Health check endpoint
 app.get('/api/health', (req, res) => {
   res.json({ status: 'OK', message: 'Server is running' });

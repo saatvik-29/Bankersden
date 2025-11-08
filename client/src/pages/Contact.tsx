@@ -141,9 +141,9 @@ export const Contact = () => {
                   <div className="ml-4">
                     <h3 className="font-semibold text-gray-900 mb-1">Address</h3>
                     <p className="text-gray-600">
-                      123 Financial Street<br />
-                      Mumbai, Maharashtra 400001<br />
-                      India
+                      BD PHYGITAL PVT. LTD - Bankers Den<br />
+                      1st Floor, City Avenue, 107,<br />
+                      Wakad, Pune, Maharashtra 411057, India
                     </p>
                   </div>
                 </div>
@@ -155,8 +155,8 @@ export const Contact = () => {
                   <div className="ml-4">
                     <h3 className="font-semibold text-gray-900 mb-1">Phone</h3>
                     <p className="text-gray-600">
-                      +91 1800-123-4567<br />
-                      +91 22-1234-5678
+                      +91 9145023840<br />
+                      +91 7758955586
                     </p>
                   </div>
                 </div>

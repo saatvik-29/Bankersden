@@ -1,31 +1,469 @@
-import { BookOpen } from 'lucide-react';
+import React from 'react';
 import { Link } from 'react-router-dom';
+import { Calendar, User, ArrowRight, TrendingUp, Shield, Calculator, BookOpen, Target, Lightbulb } from 'lucide-react';
 
-export const Blog = () => {
+interface BlogPost {
+  id: string;
+  title: string;
+  excerpt: string;
+  content: string;
+  author: string;
+  date: string;
+  category: string;
+  readTime: string;
+  image: string;
+  icon: React.ComponentType<any>;
+}
+
+export const Blog: React.FC = () => {
+  const blogPosts: BlogPost[] = [
+    {
+      id: '1',
+      title: '10 Smart Ways to Improve Your CIBIL Score in 2024',
+      excerpt: 'Your CIBIL score is crucial for loan approvals. Learn proven strategies to boost your credit score and get better interest rates.',
+      content: `A good CIBIL score is your gateway to better financial opportunities. Here are 10 proven strategies to improve your credit score:
+
+1. **Pay Bills on Time**: Payment history accounts for 35% of your CIBIL score. Set up automatic payments to never miss a due date.
+
+2. **Keep Credit Utilization Low**: Use less than 30% of your available credit limit. Lower utilization shows responsible credit management.
+
+3. **Don't Close Old Credit Cards**: Length of credit history matters. Keep old cards active with small purchases.
+
+4. **Monitor Your Credit Report**: Check for errors and dispute inaccuracies immediately. Free annual reports are available.
+
+5. **Diversify Your Credit Mix**: Having different types of credit (cards, loans) can positively impact your score.
+
+6. **Avoid Multiple Loan Applications**: Each application creates a hard inquiry. Space out applications by at least 6 months.
+
+7. **Pay More Than Minimum**: On credit cards, paying only the minimum keeps you in debt longer and hurts your score.
+
+8. **Consider Becoming an Authorized User**: Being added to someone else's account with good payment history can help.
+
+9. **Pay Off Collections**: Outstanding collections significantly hurt your score. Negotiate and pay them off.
+
+10. **Be Patient**: Credit repair takes time. Consistent good habits will show results in 3-6 months.
+
+Remember, a CIBIL score above 750 gets you the best loan terms and interest rates.`,
+      author: 'Bharat Adatiya',
+      date: '2024-01-15',
+      category: 'Credit Score',
+      readTime: '5 min read',
+      image: '/blog/cibil-score.jpg',
+      icon: TrendingUp
+    },
+    {
+      id: '2',
+      title: 'Home Loan vs Rent: Making the Right Financial Decision',
+      excerpt: 'Should you buy or rent? We break down the financial implications to help you make an informed decision.',
+      content: `The age-old question: Should you buy a home or continue renting? Here's a comprehensive analysis:
+
+**Financial Considerations:**
+
+**Buying Advantages:**
+- Build equity over time
+- Tax benefits under Section 80C and 24
+- Hedge against inflation
+- Stability and security
+- Freedom to modify
+
+**Renting Advantages:**
+- Lower upfront costs
+- Flexibility to relocate
+- No maintenance responsibilities
+- Investment opportunities with saved capital
+- No EMI burden
+
+**Key Factors to Consider:**
+
+1. **Your Age and Career Stage**: Young professionals might benefit from renting for flexibility.
+
+2. **Financial Stability**: Ensure you have 6 months of EMI as emergency fund.
+
+3. **Location Preferences**: If unsure about long-term location, renting is better.
+
+4. **Market Conditions**: In overvalued markets, renting might be more economical.
+
+5. **Opportunity Cost**: Calculate returns if you invest the down payment elsewhere.
+
+**The 5% Rule**: If annual rent is less than 5% of property value, renting is often better.
+
+**Our Recommendation**: Buy if you plan to stay 7+ years and have stable income. Rent if you value flexibility or are in an expensive market.`,
+      author: 'Financial Expert',
+      date: '2024-01-10',
+      category: 'Home Loans',
+      readTime: '7 min read',
+      image: '/blog/home-loan-vs-rent.jpg',
+      icon: Shield
+    },
+    {
+      id: '3',
+      title: 'EMI Calculator: How to Choose the Right Loan Tenure',
+      excerpt: 'Learn how to use EMI calculators effectively and choose the optimal loan tenure for your financial situation.',
+      content: `Choosing the right loan tenure is crucial for your financial health. Here's how to make the best decision:
+
+**Understanding EMI Components:**
+- Principal: The loan amount
+- Interest: Cost of borrowing
+- Tenure: Repayment period
+
+**Shorter Tenure Benefits:**
+- Lower total interest paid
+- Faster debt freedom
+- Better for disciplined borrowers
+
+**Longer Tenure Benefits:**
+- Lower monthly EMI
+- Better cash flow management
+- Suitable for conservative borrowers
+
+**How to Choose:**
+
+1. **Calculate Affordability**: EMI shouldn't exceed 40% of monthly income.
+
+2. **Consider Future Income**: Will your income grow? Shorter tenure might work.
+
+3. **Emergency Fund**: Ensure you can maintain 6-month expenses after EMI.
+
+4. **Other Goals**: Balance loan repayment with other financial goals.
+
+5. **Interest Rate Environment**: In rising rate scenarios, shorter tenure is better.
+
+**Pro Tips:**
+- Use step-up EMI for growing income
+- Consider part-payments to reduce tenure
+- Review and optimize annually
+- Factor in tax benefits for home loans
+
+**Example Calculation:**
+₹50 lakh home loan at 8.5% p.a.:
+- 15 years: EMI ₹49,277, Total Interest ₹38.7 lakh
+- 20 years: EMI ₹43,391, Total Interest ₹54.1 lakh
+- 30 years: EMI ₹38,449, Total Interest ₹88.4 lakh
+
+Choose based on your comfort and financial goals.`,
+      author: 'Loan Specialist',
+      date: '2024-01-05',
+      category: 'EMI Planning',
+      readTime: '6 min read',
+      image: '/blog/emi-calculator.jpg',
+      icon: Calculator
+    },
+    {
+      id: '4',
+      title: 'Business Loan Guide: Funding Your Entrepreneurial Dreams',
+      excerpt: 'Everything you need to know about business loans - from eligibility to documentation and approval process.',
+      content: `Starting or expanding a business requires capital. Here's your complete guide to business loans:
+
+**Types of Business Loans:**
+
+1. **Term Loans**: Fixed amount, fixed tenure, regular EMIs
+2. **Working Capital**: For day-to-day operations
+3. **Equipment Financing**: For machinery and equipment
+4. **Invoice Financing**: Against pending invoices
+5. **Line of Credit**: Flexible borrowing facility
+
+**Eligibility Criteria:**
+- Business vintage: 2+ years
+- Annual turnover: ₹10 lakh+
+- CIBIL score: 650+
+- Profitable operations
+- Valid business registration
+
+**Required Documents:**
+- Business registration certificate
+- GST returns (12 months)
+- Bank statements (12 months)
+- ITR (2-3 years)
+- Financial statements
+- Business plan
+- Identity and address proof
+
+**Tips for Approval:**
+1. Maintain clean financial records
+2. Show consistent profitability
+3. Have a clear business plan
+4. Demonstrate repayment capacity
+5. Consider collateral for better rates
+
+**Interest Rates:**
+- Secured loans: 9.5% - 15% p.a.
+- Unsecured loans: 12% - 20% p.a.
+
+**Repayment Options:**
+- Regular EMI
+- Bullet payment
+- Step-up/Step-down EMI
+- Seasonal repayment
+
+**Government Schemes:**
+- MUDRA loans for micro enterprises
+- CGTMSE for collateral-free loans
+- Stand-up India for SC/ST/Women entrepreneurs
+
+Plan your business financing carefully and choose the right loan product for your needs.`,
+      author: 'Business Advisor',
+      date: '2023-12-28',
+      category: 'Business Loans',
+      readTime: '8 min read',
+      image: '/blog/business-loan.jpg',
+      icon: Target
+    },
+    {
+      id: '5',
+      title: 'Personal Finance 101: Building Wealth in Your 20s and 30s',
+      excerpt: 'Essential financial habits and strategies for young professionals to build long-term wealth.',
+      content: `Your 20s and 30s are crucial for building wealth. Here's your roadmap to financial success:
+
+**Phase 1: Foundation (20s)**
+
+**Emergency Fund First:**
+- Save 6 months of expenses
+- Keep in liquid funds or savings account
+- This prevents debt during emergencies
+
+**Start Investing Early:**
+- Begin SIP in equity mutual funds
+- Even ₹1,000/month compounds significantly
+- Time is your biggest advantage
+
+**Build Credit History:**
+- Get your first credit card
+- Pay bills on time
+- Keep utilization low
+
+**Phase 2: Acceleration (30s)**
+
+**Increase Savings Rate:**
+- Target 20-30% of income
+- Automate investments
+- Increase SIP with salary hikes
+
+**Diversify Investments:**
+- Equity: 70-80% for growth
+- Debt: 20-30% for stability
+- Real estate: Consider after other goals
+
+**Plan for Major Goals:**
+- Home purchase
+- Children's education
+- Retirement planning
+
+**Key Strategies:**
+
+1. **Pay Yourself First**: Invest before spending
+2. **Avoid Lifestyle Inflation**: Don't increase expenses with income
+3. **Tax Planning**: Use 80C, ELSS, NPS efficiently
+4. **Insurance**: Term life and health insurance
+5. **Skill Development**: Invest in yourself
+
+**Common Mistakes to Avoid:**
+- Taking unnecessary loans
+- Not having health insurance
+- Putting all money in FDs
+- Not starting early
+- Emotional investing
+
+**Sample Portfolio (30-year-old):**
+- Emergency Fund: ₹3 lakh
+- Equity Mutual Funds: 70%
+- Debt Funds: 20%
+- Gold/REITs: 10%
+
+Start today, stay consistent, and let compounding work its magic!`,
+      author: 'Wealth Advisor',
+      date: '2023-12-20',
+      category: 'Personal Finance',
+      readTime: '9 min read',
+      image: '/blog/personal-finance.jpg',
+      icon: Lightbulb
+    },
+    {
+      id: '6',
+      title: 'Insurance Planning: Protecting Your Financial Future',
+      excerpt: 'Complete guide to insurance planning - life, health, and general insurance for comprehensive protection.',
+      content: `Insurance is your financial safety net. Here's how to plan comprehensive coverage:
+
+**Types of Insurance:**
+
+**1. Life Insurance:**
+- **Term Insurance**: Pure protection, lowest cost
+- **Endowment**: Insurance + Investment (not recommended)
+- **ULIPs**: Market-linked insurance plans
+
+**2. Health Insurance:**
+- **Individual Plans**: Personal coverage
+- **Family Floater**: Covers entire family
+- **Top-up Plans**: Additional coverage at low cost
+- **Critical Illness**: Covers specific diseases
+
+**3. General Insurance:**
+- **Motor Insurance**: Mandatory for vehicles
+- **Home Insurance**: Protects property and contents
+- **Travel Insurance**: For domestic and international trips
+
+**How Much Coverage Do You Need?**
+
+**Life Insurance:**
+- 10-15 times annual income
+- Consider outstanding loans
+- Factor in future goals (children's education, etc.)
+
+**Health Insurance:**
+- Minimum ₹5 lakh per person in metros
+- ₹10+ lakh for comprehensive coverage
+- Consider inflation in medical costs
+
+**Key Features to Look For:**
+
+**Term Insurance:**
+- High claim settlement ratio
+- Online purchase for lower premiums
+- Riders for additional protection
+
+**Health Insurance:**
+- Cashless network hospitals
+- No room rent capping
+- Coverage for pre and post hospitalization
+- Maternity benefits (if needed)
+
+**Pro Tips:**
+1. Buy insurance early for lower premiums
+2. Don't mix insurance with investment
+3. Review coverage annually
+4. Maintain continuous coverage
+5. Read policy documents carefully
+
+**Tax Benefits:**
+- Life insurance: 80C (up to ₹1.5 lakh)
+- Health insurance: 80D (up to ₹75,000)
+
+**Common Mistakes:**
+- Buying insurance as investment
+- Insufficient coverage
+- Not disclosing medical history
+- Delaying purchase
+
+Insurance is not an expense - it's protection for your financial goals.`,
+      author: 'Insurance Expert',
+      date: '2023-12-15',
+      category: 'Insurance',
+      readTime: '7 min read',
+      image: '/blog/insurance-planning.jpg',
+      icon: Shield
+    }
+  ];
+
+  const categories = ['All', 'Credit Score', 'Home Loans', 'EMI Planning', 'Business Loans', 'Personal Finance', 'Insurance'];
+  const [selectedCategory, setSelectedCategory] = React.useState('All');
+
+  const filteredPosts = selectedCategory === 'All' 
+    ? blogPosts 
+    : blogPosts.filter(post => post.category === selectedCategory);
+
   return (
-    <div className="min-h-screen bg-gray-50 py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-600 text-white rounded-full mb-4">
-            <BookOpen className="w-8 h-8" />
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50">
+      {/* Hero Section */}
+      <div className="bg-gradient-to-r from-blue-600 to-indigo-700 text-white py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+              Bankers Den Insights
+            </h1>
+            <p className="text-xl md:text-2xl max-w-3xl mx-auto">
+              Smart Financial Choices Made Simple
+            </p>
+            <p className="text-lg mt-4 text-blue-100">
+              Financial tips, guides, and insights to help you make better decisions
+            </p>
           </div>
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Blog</h1>
-          <p className="text-xl text-gray-600">
-            Financial tips, guides, and insights to help you make better decisions
-          </p>
+        </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        {/* Category Filter */}
+        <div className="flex flex-wrap justify-center gap-4 mb-12">
+          {categories.map((category) => (
+            <button
+              key={category}
+              onClick={() => setSelectedCategory(category)}
+              className={`px-6 py-2 rounded-full font-medium transition-all duration-200 ${
+                selectedCategory === category
+                  ? 'bg-blue-600 text-white shadow-lg'
+                  : 'bg-white text-gray-600 hover:bg-blue-50 hover:text-blue-600 shadow-md'
+              }`}
+            >
+              {category}
+            </button>
+          ))}
         </div>
 
-        <div className="bg-white rounded-xl shadow-lg p-12 text-center">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Coming Soon</h2>
-          <p className="text-gray-600 mb-8">
-            We're creating valuable content for you. Stay tuned for expert financial advice!
+        {/* Blog Posts Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {filteredPosts.map((post) => (
+            <article key={post.id} className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden">
+              {/* Image Placeholder */}
+              <div className="h-48 bg-gradient-to-br from-blue-400 to-indigo-600 flex items-center justify-center">
+                <post.icon className="w-16 h-16 text-white" />
+              </div>
+              
+              <div className="p-6">
+                {/* Category Badge */}
+                <div className="inline-block bg-blue-100 text-blue-800 text-xs font-semibold px-3 py-1 rounded-full mb-3">
+                  {post.category}
+                </div>
+                
+                {/* Title */}
+                <h2 className="text-xl font-bold text-gray-900 mb-3 line-clamp-2">
+                  {post.title}
+                </h2>
+                
+                {/* Excerpt */}
+                <p className="text-gray-600 mb-4 line-clamp-3">
+                  {post.excerpt}
+                </p>
+                
+                {/* Meta Info */}
+                <div className="flex items-center justify-between text-sm text-gray-500 mb-4">
+                  <div className="flex items-center space-x-4">
+                    <div className="flex items-center">
+                      <User className="w-4 h-4 mr-1" />
+                      {post.author}
+                    </div>
+                    <div className="flex items-center">
+                      <Calendar className="w-4 h-4 mr-1" />
+                      {new Date(post.date).toLocaleDateString()}
+                    </div>
+                  </div>
+                  <span className="text-blue-600 font-medium">{post.readTime}</span>
+                </div>
+                
+                {/* Read More Button */}
+                <button className="group flex items-center text-blue-600 font-semibold hover:text-blue-700 transition-colors">
+                  Read Full Article
+                  <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                </button>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        {/* Newsletter Signup */}
+        <div className="mt-16 bg-gradient-to-r from-blue-600 to-indigo-700 text-white rounded-2xl p-8 text-center">
+          <BookOpen className="w-16 h-16 mx-auto mb-4" />
+          <h2 className="text-3xl font-bold mb-4">Stay Updated</h2>
+          <p className="text-xl mb-6 text-blue-100">
+            Get the latest financial insights delivered to your inbox
           </p>
-          <Link
-            to="/"
-            className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700"
-          >
-            Back to Home
-          </Link>
+          <div className="max-w-md mx-auto flex gap-4">
+            <input
+              type="email"
+              placeholder="Enter your email"
+              className="flex-1 px-4 py-3 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-white"
+            />
+            <button className="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors">
+              Subscribe
+            </button>
+          </div>
         </div>
       </div>
     </div>

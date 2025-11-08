@@ -6,46 +6,39 @@ export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="bg-white shadow-sm sticky top-0 z-50">
+    <header className="bg-white/95 backdrop-blur-md shadow-lg sticky top-0 z-50 border-b border-primary-100">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-20">
           <div className="flex items-center">
-            <Link to="/" className="text-2xl font-bold text-blue-600">
+            <Link to="/" className="text-3xl font-bold bg-gradient-to-r from-primary-600 to-accent-500 bg-clip-text text-transparent">
               BankersDen
             </Link>
           </div>
 
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-6">
             <div className="relative group">
-              <button className="text-gray-700 hover:text-blue-600 font-medium">
+              <button className="text-secondary-700 hover:text-primary-600 font-semibold px-4 py-2 rounded-lg hover:bg-primary-50 transition-all duration-200">
                 Loans
               </button>
-              <div className="absolute left-0 mt-2 w-56 bg-white shadow-lg rounded-lg py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
-                <Link to="/loans/home" className="block px-4 py-2 hover:bg-gray-50">Home Loan</Link>
-                <Link to="/loans/personal" className="block px-4 py-2 hover:bg-gray-50">Personal Loan</Link>
-                <Link to="/loans/business" className="block px-4 py-2 hover:bg-gray-50">Business Loan</Link>
-                <Link to="/loans/car" className="block px-4 py-2 hover:bg-gray-50">Car Loan</Link>
-                <Link to="/loans/education" className="block px-4 py-2 hover:bg-gray-50">Education Loan</Link>
-                <Link to="/loans/property" className="block px-4 py-2 hover:bg-gray-50">Loan Against Property</Link>
-                <Link to="/loans/gold" className="block px-4 py-2 hover:bg-gray-50">Gold Loan</Link>
+              <div className="absolute left-0 mt-2 w-64 bg-white/95 backdrop-blur-md shadow-xl rounded-2xl py-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 border border-primary-100">
+                <Link to="/loans/home" className="block px-6 py-3 hover:bg-primary-50 text-secondary-700 hover:text-primary-600 transition-colors">Home Loan</Link>
+                <Link to="/loans/property" className="block px-6 py-3 hover:bg-primary-50 text-secondary-700 hover:text-primary-600 transition-colors">Loan Against Property</Link>
+                <Link to="/loans/car" className="block px-6 py-3 hover:bg-primary-50 text-secondary-700 hover:text-primary-600 transition-colors">Car Loan</Link>
+                <Link to="/loans/personal" className="block px-6 py-3 hover:bg-primary-50 text-secondary-700 hover:text-primary-600 transition-colors">Personal Loan</Link>
+                <Link to="/loans/business" className="block px-6 py-3 hover:bg-primary-50 text-secondary-700 hover:text-primary-600 transition-colors">Business Loan</Link>
+                <Link to="/loans/education" className="block px-6 py-3 hover:bg-primary-50 text-secondary-700 hover:text-primary-600 transition-colors">Education Loan</Link>
               </div>
             </div>
-            <Link to="/credit-cards" className="text-gray-700 hover:text-blue-600 font-medium">
-              Credit Cards
+            <Link to="/calculators" className="text-secondary-700 hover:text-primary-600 font-semibold px-4 py-2 rounded-lg hover:bg-primary-50 transition-all duration-200">
+              Calculators
             </Link>
-            <Link to="/insurance" className="text-gray-700 hover:text-blue-600 font-medium">
-              Insurance
+            <Link to="/about" className="text-secondary-700 hover:text-primary-600 font-semibold px-4 py-2 rounded-lg hover:bg-primary-50 transition-all duration-200">
+              About
             </Link>
-            <Link to="/cibil-score" className="text-gray-700 hover:text-blue-600 font-medium">
-              CIBIL Score
-            </Link>
-            <Link to="/emi-calculator" className="text-gray-700 hover:text-blue-600 font-medium">
-              EMI Calculator
-            </Link>
-            <Link to="/blog" className="text-gray-700 hover:text-blue-600 font-medium">
+            <Link to="/blog" className="text-secondary-700 hover:text-primary-600 font-semibold px-4 py-2 rounded-lg hover:bg-primary-50 transition-all duration-200">
               Blog
             </Link>
-            <Link to="/contact" className="text-gray-700 hover:text-blue-600 font-medium">
+            <Link to="/contact" className="text-secondary-700 hover:text-primary-600 font-semibold px-4 py-2 rounded-lg hover:bg-primary-50 transition-all duration-200">
               Contact
             </Link>
           </div>
@@ -53,7 +46,7 @@ export const Header = () => {
           <div className="hidden md:flex items-center space-x-4">
             <Link
               to="/contact"
-              className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 font-medium"
+              className="bg-gradient-to-r from-primary-600 to-primary-700 text-white px-8 py-3 rounded-xl hover:from-primary-700 hover:to-primary-800 font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5"
             >
               Get Started
             </Link>
@@ -71,14 +64,16 @@ export const Header = () => {
           <div className="md:hidden py-4 border-t">
             <div className="flex flex-col space-y-3">
               <Link to="/loans/home" className="text-gray-700 hover:text-blue-600 font-medium">Home Loan</Link>
+              <Link to="/loans/property" className="text-gray-700 hover:text-blue-600 font-medium">Loan Against Property</Link>
+              <Link to="/loans/car" className="text-gray-700 hover:text-blue-600 font-medium">Car Loan</Link>
               <Link to="/loans/personal" className="text-gray-700 hover:text-blue-600 font-medium">Personal Loan</Link>
               <Link to="/loans/business" className="text-gray-700 hover:text-blue-600 font-medium">Business Loan</Link>
-              <Link to="/loans/car" className="text-gray-700 hover:text-blue-600 font-medium">Car Loan</Link>
               <Link to="/loans/education" className="text-gray-700 hover:text-blue-600 font-medium">Education Loan</Link>
-              <Link to="/credit-cards" className="text-gray-700 hover:text-blue-600 font-medium">Credit Cards</Link>
+              <Link to="/about" className="text-gray-700 hover:text-blue-600 font-medium">About Us</Link>
+              <Link to="/bd-partner" className="text-gray-700 hover:text-blue-600 font-medium">BD Partner</Link>
               <Link to="/insurance" className="text-gray-700 hover:text-blue-600 font-medium">Insurance</Link>
+              <Link to="/calculators" className="text-gray-700 hover:text-blue-600 font-medium">Calculators</Link>
               <Link to="/cibil-score" className="text-gray-700 hover:text-blue-600 font-medium">CIBIL Score</Link>
-              <Link to="/emi-calculator" className="text-gray-700 hover:text-blue-600 font-medium">EMI Calculator</Link>
               <Link to="/blog" className="text-gray-700 hover:text-blue-600 font-medium">Blog</Link>
               <Link to="/contact" className="text-gray-700 hover:text-blue-600 font-medium">Contact</Link>
               <Link to="/contact" className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 font-medium text-center">Get Started</Link>

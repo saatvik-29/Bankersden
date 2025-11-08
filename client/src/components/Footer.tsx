@@ -12,16 +12,10 @@ export const Footer = () => {
               Your trusted partner for all financial needs. Get the best deals on loans, credit cards, and insurance.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="hover:text-blue-400 transition-colors">
-                <Facebook className="w-5 h-5" />
-              </a>
-              <a href="#" className="hover:text-blue-400 transition-colors">
-                <Twitter className="w-5 h-5" />
-              </a>
-              <a href="#" className="hover:text-blue-400 transition-colors">
+              <a href="https://www.linkedin.com/in/bharat-adatiya-78110b245/?originalSubdomain=in" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition-colors">
                 <Linkedin className="w-5 h-5" />
               </a>
-              <a href="#" className="hover:text-blue-400 transition-colors">
+              <a href="https://www.instagram.com/bankersdens/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition-colors">
                 <Instagram className="w-5 h-5" />
               </a>
             </div>
@@ -36,17 +30,17 @@ export const Footer = () => {
               <li><Link to="/loans/car" className="hover:text-blue-400 transition-colors">Car Loan</Link></li>
               <li><Link to="/loans/education" className="hover:text-blue-400 transition-colors">Education Loan</Link></li>
               <li><Link to="/loans/property" className="hover:text-blue-400 transition-colors">Loan Against Property</Link></li>
-              <li><Link to="/loans/gold" className="hover:text-blue-400 transition-colors">Gold Loan</Link></li>
             </ul>
           </div>
 
           <div>
             <h4 className="text-white font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2 text-sm">
-              <li><Link to="/credit-cards" className="hover:text-blue-400 transition-colors">Credit Cards</Link></li>
+              <li><Link to="/about" className="hover:text-blue-400 transition-colors">About Us</Link></li>
+              <li><Link to="/bd-partner" className="hover:text-blue-400 transition-colors">BD Partner</Link></li>
               <li><Link to="/insurance" className="hover:text-blue-400 transition-colors">Insurance</Link></li>
+              <li><Link to="/calculators" className="hover:text-blue-400 transition-colors">Calculators</Link></li>
               <li><Link to="/cibil-score" className="hover:text-blue-400 transition-colors">CIBIL Score Check</Link></li>
-              <li><Link to="/emi-calculator" className="hover:text-blue-400 transition-colors">EMI Calculator</Link></li>
               <li><Link to="/blog" className="hover:text-blue-400 transition-colors">Blog</Link></li>
               <li><Link to="/contact" className="hover:text-blue-400 transition-colors">Contact Us</Link></li>
             </ul>
@@ -57,11 +51,11 @@ export const Footer = () => {
             <ul className="space-y-3 text-sm">
               <li className="flex items-start">
                 <MapPin className="w-5 h-5 mr-2 flex-shrink-0 mt-0.5" />
-                <span>123 Financial Street, Mumbai, Maharashtra 400001</span>
+                <span>BD PHYGITAL PVT. LTD - Bankers Den<br />1st Floor, City Avenue, 107,<br />Wakad, Pune, Maharashtra 411057, India</span>
               </li>
               <li className="flex items-center">
                 <Phone className="w-5 h-5 mr-2 flex-shrink-0" />
-                <span>+91 1800-123-4567</span>
+                <span>+91 9145023840 / 7758955586</span>
               </li>
               <li className="flex items-center">
                 <Mail className="w-5 h-5 mr-2 flex-shrink-0" />

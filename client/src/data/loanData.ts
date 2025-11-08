@@ -42,8 +42,8 @@ export const loanTypes: LoanDetails[] = [
     slug: 'home-loan',
     description: 'Get your dream home with attractive interest rates and flexible repayment options. Our home loans come with competitive rates and minimal documentation.',
     interestRate: {
-      min: 8.5,
-      max: 12.0,
+      min: 7.35,
+      max: 11.0,
       unit: '% p.a.'
     },
     loanAmount: {
@@ -164,8 +164,8 @@ export const loanTypes: LoanDetails[] = [
     slug: 'business-loan',
     description: 'Fuel your business growth with flexible business loans. Get working capital and expansion funds with competitive interest rates.',
     interestRate: {
-      min: 12.0,
-      max: 20.0,
+      min: 9.5,
+      max: 18.0,
       unit: '% p.a.'
     },
     loanAmount: {
@@ -225,8 +225,8 @@ export const loanTypes: LoanDetails[] = [
     slug: 'car-loan',
     description: 'Drive your dream car with easy EMI options and quick approval. Get attractive interest rates on both new and used cars.',
     interestRate: {
-      min: 8.0,
-      max: 15.0,
+      min: 7.5,
+      max: 14.0,
       unit: '% p.a.'
     },
     loanAmount: {
@@ -341,66 +341,7 @@ export const loanTypes: LoanDetails[] = [
     color: 'indigo',
     category: 'Education'
   },
-  {
-    id: 'gold',
-    name: 'Gold Loan',
-    slug: 'gold-loan',
-    description: 'Get instant cash against your gold with attractive interest rates. Quick processing with minimal documentation and flexible repayment.',
-    interestRate: {
-      min: 10.0,
-      max: 18.0,
-      unit: '% p.a.'
-    },
-    loanAmount: {
-      min: 25000,
-      max: 5000000,
-      currency: '₹'
-    },
-    tenure: {
-      min: 3,
-      max: 3,
-      unit: 'years'
-    },
-    processingFee: '1% - 2% of loan amount',
-    eligibility: [
-      'Age: 18-70 years',
-      'Valid gold ornaments',
-      'Gold purity: 18K or above',
-      'Valid identity proof',
-      'Address proof required'
-    ],
-    features: [
-      'Instant loan approval',
-      'No income proof required',
-      'Flexible repayment options',
-      'Safe gold storage',
-      'Transparent valuation',
-      'Quick disbursement'
-    ],
-    benefits: [
-      'No CIBIL score required',
-      'Quick processing',
-      'Competitive interest rates',
-      'Safe and secure storage',
-      'Flexible tenure'
-    ],
-    documents: [
-      'Identity proof (Aadhaar/PAN)',
-      'Address proof',
-      'Gold ornaments',
-      'Valuation certificate',
-      'Photographs'
-    ],
-    emiExample: {
-      amount: 200000,
-      tenure: 1,
-      rate: 14.0,
-      emi: 17940
-    },
-    icon: 'Gem',
-    color: 'yellow',
-    category: 'Secured'
-  },
+
   {
     id: 'property',
     name: 'Loan Against Property',

@@ -174,5 +174,120 @@ export const clientTemplates = {
       </body>
       </html>
     `
+  }),
+
+  bdPartnerConfirmation: (data) => ({
+    subject: `BD Partner Application Received - ${data.applicationNumber}`,
+    html: `
+      <!DOCTYPE html>
+      <html>
+      <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>BD Partner Application Confirmation</title>
+        <style>
+          body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; margin: 0; padding: 0; background-color: #f4f4f4; }
+          .container { max-width: 600px; margin: 0 auto; background-color: #ffffff; }
+          .header { background: linear-gradient(135deg, #28a745 0%, #20c997 100%); color: white; padding: 30px; text-align: center; }
+          .header h1 { margin: 0; font-size: 28px; font-weight: 300; }
+          .content { padding: 40px 30px; }
+          .highlight-box { background-color: #f8fff8; border-left: 4px solid #28a745; padding: 20px; margin: 20px 0; border-radius: 4px; }
+          .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 20px 0; }
+          .info-item { background-color: #f9f9f9; padding: 15px; border-radius: 6px; }
+          .info-label { font-weight: 600; color: #555; font-size: 14px; margin-bottom: 5px; }
+          .info-value { color: #333; font-size: 16px; }
+          .status-badge { display: inline-block; background-color: #28a745; color: white; padding: 8px 16px; border-radius: 20px; font-size: 14px; font-weight: 500; }
+          .footer { background-color: #f8f9fa; padding: 30px; text-align: center; border-top: 1px solid #e9ecef; }
+          .contact-info { margin: 20px 0; }
+          .contact-info a { color: #28a745; text-decoration: none; }
+          @media (max-width: 600px) {
+            .info-grid { grid-template-columns: 1fr; }
+            .content { padding: 20px; }
+          }
+        </style>
+      </head>
+      <body>
+        <div class="container">
+          <div class="header">
+            <h1>🤝 BankersDen</h1>
+            <p style="margin: 10px 0 0 0; opacity: 0.9;">BD Partner Program</p>
+          </div>
+          
+          <div class="content">
+            <h2 style="color: #333; margin-bottom: 10px;">Welcome to the BD Partner Program!</h2>
+            <p>Dear <strong>${data.fullName}</strong>,</p>
+            
+            <div class="highlight-box">
+              <p style="margin: 0; font-size: 16px;">
+                <span class="status-badge">Application Received</span>
+              </p>
+              <p style="margin: 15px 0 0 0; font-size: 18px; font-weight: 600; color: #333;">
+                Application #${data.applicationNumber}
+              </p>
+            </div>
+            
+            <p>Thank you for your interest in becoming a Business Development Partner with BankersDen. We have successfully received your application and are excited about the possibility of working together.</p>
+            
+            <div class="info-grid">
+              <div class="info-item">
+                <div class="info-label">Application Date</div>
+                <div class="info-value">${new Date().toLocaleDateString('en-IN')}</div>
+              </div>
+              <div class="info-item">
+                <div class="info-label">Experience Level</div>
+                <div class="info-value">${data.experience} years</div>
+              </div>
+              <div class="info-item">
+                <div class="info-label">Location</div>
+                <div class="info-value">${data.city}</div>
+              </div>
+              <div class="info-item">
+                <div class="info-label">Expected Earnings</div>
+                <div class="info-value">${data.expectedEarnings}</div>
+              </div>
+            </div>
+            
+            <h3 style="color: #333; margin-top: 30px;">What happens next?</h3>
+            <ul style="padding-left: 20px; line-height: 1.8;">
+              <li><strong>Application Review:</strong> Our team will review your application within 2-3 business days</li>
+              <li><strong>Initial Interview:</strong> If shortlisted, we'll schedule a phone/video interview</li>
+              <li><strong>Training Program:</strong> Selected candidates will undergo comprehensive training</li>
+              <li><strong>Onboarding:</strong> Welcome to the BankersDen BD Partner family!</li>
+            </ul>
+            
+            <div class="highlight-box">
+              <p style="margin: 0; font-weight: 600; color: #333;">Why BankersDen BD Partner Program?</p>
+              <ul style="margin: 10px 0 0 0; padding-left: 20px;">
+                <li>High commission rates up to 1.5% of loan amount</li>
+                <li>Access to 275+ partner banks and NBFCs</li>
+                <li>Complete training and ongoing support</li>
+                <li>Flexible working hours and unlimited earning potential</li>
+              </ul>
+            </div>
+            
+            <p>We appreciate your interest in joining our team and look forward to potentially working together to help customers achieve their financial goals.</p>
+          </div>
+          
+          <div class="footer">
+            <div class="contact-info">
+              <p style="margin: 0; font-weight: 600; color: #333;">Contact Us</p>
+              <p style="margin: 5px 0;">Email: <a href="mailto:careers@bankersden.com">careers@bankersden.com</a></p>
+              <p style="margin: 5px 0;">Phone: <a href="tel:+919145023840">+91 9145023840</a></p>
+              <p style="margin: 5px 0;">Website: <a href="https://bankersden.com">www.bankersden.com</a></p>
+            </div>
+            
+            <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #e9ecef;">
+              <p style="margin: 0; font-size: 14px; color: #666;">
+                This is an automated confirmation. We'll be in touch soon!
+              </p>
+              <p style="margin: 5px 0 0 0; font-size: 12px; color: #999;">
+                © 2024 BankersDen. All rights reserved.
+              </p>
+            </div>
+          </div>
+        </div>
+      </body>
+      </html>
+    `
   })
 };

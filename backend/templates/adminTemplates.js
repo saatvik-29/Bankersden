@@ -251,5 +251,120 @@ export const adminTemplates = {
       </body>
       </html>
     `
+  }),
+
+  newBDPartnerApplication: (data, applicationNumber) => ({
+    subject: `🤝 New BD Partner Application - ${data.fullName} - ${applicationNumber}`,
+    html: `
+      <!DOCTYPE html>
+      <html>
+      <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>New BD Partner Application</title>
+        <style>
+          body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; margin: 0; padding: 0; background-color: #f4f4f4; }
+          .container { max-width: 700px; margin: 0 auto; background-color: #ffffff; }
+          .header { background: linear-gradient(135deg, #28a745 0%, #20c997 100%); color: white; padding: 25px; text-align: center; }
+          .header h1 { margin: 0; font-size: 24px; font-weight: 600; }
+          .alert-badge { background-color: rgba(255,255,255,0.2); padding: 8px 16px; border-radius: 20px; display: inline-block; margin-top: 10px; }
+          .content { padding: 30px; }
+          .app-header { background-color: #f8f9fa; padding: 20px; border-radius: 8px; margin-bottom: 25px; border-left: 4px solid #28a745; }
+          .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 20px 0; }
+          .info-item { background-color: #f9f9f9; padding: 15px; border-radius: 6px; border: 1px solid #e9ecef; }
+          .info-label { font-weight: 600; color: #555; font-size: 13px; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 0.5px; }
+          .info-value { color: #333; font-size: 15px; font-weight: 500; }
+          .section { margin: 25px 0; }
+          .section h3 { color: #28a745; margin-bottom: 15px; font-size: 18px; border-bottom: 2px solid #f8f9fa; padding-bottom: 8px; }
+          .message-box { background-color: #f8f9ff; border: 1px solid #e3e6ff; border-radius: 8px; padding: 20px; margin: 20px 0; }
+          .action-buttons { text-align: center; margin: 30px 0; }
+          .btn { display: inline-block; padding: 12px 24px; margin: 0 10px; text-decoration: none; border-radius: 6px; font-weight: 600; }
+          .btn-primary { background-color: #007bff; color: white; }
+          .btn-success { background-color: #28a745; color: white; }
+          .footer { background-color: #f8f9fa; padding: 20px; text-align: center; border-top: 1px solid #e9ecef; font-size: 14px; color: #666; }
+          @media (max-width: 600px) {
+            .info-grid { grid-template-columns: 1fr; }
+            .content { padding: 20px; }
+          }
+        </style>
+      </head>
+      <body>
+        <div class="container">
+          <div class="header">
+            <h1>🤝 BankersDen BD Partner Portal</h1>
+            <div class="alert-badge">New Partner Application</div>
+          </div>
+          
+          <div class="content">
+            <div class="app-header">
+              <h2 style="margin: 0 0 10px 0; color: #28a745;">New BD Partner Application</h2>
+              <p style="margin: 0; font-size: 16px;"><strong>Application #${applicationNumber}</strong></p>
+              <p style="margin: 5px 0 0 0; color: #666;">Received: ${new Date().toLocaleString('en-IN')}</p>
+            </div>
+            
+            <div class="section">
+              <h3>👤 Applicant Information</h3>
+              <div class="info-grid">
+                <div class="info-item">
+                  <div class="info-label">Full Name</div>
+                  <div class="info-value">${data.fullName}</div>
+                </div>
+                <div class="info-item">
+                  <div class="info-label">Email</div>
+                  <div class="info-value">${data.email}</div>
+                </div>
+                <div class="info-item">
+                  <div class="info-label">Phone</div>
+                  <div class="info-value">${data.phone}</div>
+                </div>
+                <div class="info-item">
+                  <div class="info-label">City</div>
+                  <div class="info-value">${data.city}</div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="section">
+              <h3>💼 Professional Background</h3>
+              <div class="info-grid">
+                <div class="info-item">
+                  <div class="info-label">Experience</div>
+                  <div class="info-value">${data.experience} years</div>
+                </div>
+                <div class="info-item">
+                  <div class="info-label">Current Occupation</div>
+                  <div class="info-value">${data.currentOccupation}</div>
+                </div>
+                <div class="info-item">
+                  <div class="info-label">Expected Earnings</div>
+                  <div class="info-value">${data.expectedEarnings}</div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="message-box">
+              <h3 style="margin: 0 0 15px 0; color: #333;">Why they want to join:</h3>
+              <p style="margin: 0; font-style: italic; line-height: 1.6;">"${data.whyJoin}"</p>
+            </div>
+            
+            <div class="action-buttons">
+              <a href="mailto:${data.email}?subject=BD Partner Application - ${applicationNumber}" class="btn btn-primary">📧 Contact Applicant</a>
+              <a href="tel:${data.phone}" class="btn btn-success">📞 Call Now</a>
+            </div>
+            
+            <div style="background-color: #d4edda; border: 1px solid #c3e6cb; border-radius: 6px; padding: 15px; margin: 20px 0;">
+              <p style="margin: 0; font-weight: 600; color: #155724;">🎯 Next Steps</p>
+              <p style="margin: 5px 0 0 0; color: #155724;">Review the application and schedule an interview within 2-3 business days.</p>
+            </div>
+          </div>
+          
+          <div class="footer">
+            <p style="margin: 0;">BankersDen BD Partner Management System</p>
+            <p style="margin: 5px 0 0 0; font-size: 12px;">This email contains confidential applicant information.</p>
+          </div>
+        </div>
+      </body>
+      </html>
+    `
   })
 };
