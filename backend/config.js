@@ -3,7 +3,7 @@ export const getSmtpConfig = () => ({
   user: process.env.SMTP_USER || "your-email@gmail.com",
   pass: process.env.SMTP_PASS || "your-app-password",
   adminEmail: process.env.ADMIN_EMAIL || "saatvikcool345@gmail.com",
-  port: process.env.PORT || 5000,
+  smtpPort: 587, // SMTP port for Gmail
 });
 
 // Legacy export for compatibility

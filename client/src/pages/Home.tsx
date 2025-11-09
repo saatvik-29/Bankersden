@@ -12,8 +12,6 @@ import {
   Award,
   ArrowRight,
   Star,
-  ChevronLeft,
-  ChevronRight,
   Calculator,
   FileText,
   Clock,
@@ -22,7 +20,7 @@ import {
 } from 'lucide-react';
 import { Button } from '../components/Button';
 import { FAQ } from '../components/FAQ';
-import { FloatingElements } from '../components/AnimatedGraphics';
+
 
 // ✅ Use your three images instead of calculator/Lottie
 import hero1 from '../assets/hero-illustration-1.png?url';
@@ -88,13 +86,7 @@ export const Home = () => {
     return () => clearInterval(id);
   }, []);
 
-  const nextCard = () => {
-    setCurrentHeroCard((prev) => (prev + 1) % heroCards.length);
-  };
 
-  const prevCard = () => {
-    setCurrentHeroCard((prev) => (prev - 1 + heroCards.length) % heroCards.length);
-  };
 
   const fetchTestimonials = async () => {
     const staticTestimonials: Testimonial[] = [
@@ -225,16 +217,16 @@ export const Home = () => {
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section - Professional Banking Theme */}
-      <section className="bg-gradient-to-br from-blue-900 via-blue-800 to-teal-900 text-white py-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMzLjMxNCAwIDYgMi42ODYgNiA2cy0yLjY4NiA2LTYgNi02LTIuNjg2LTYtNiAyLjY4Ni02IDYtNnoiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLW9wYWNpdHk9Ii4wNSIvPjwvZz48L3N2Zz4=')] opacity-30"></div>
+      {/* Hero Section - Light Professional Theme */}
+      <section className="bg-gradient-to-br from-blue-50 via-white to-indigo-50 py-20 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMzLjMxNCAwIDYgMi42ODYgNiA2cy0yLjY4NiA2LTYgNi02LTIuNjg2LTYtNiAyLjY4Ni02IDYtNnoiIHN0cm9rZT0iIzM4NjBmNiIgc3Ryb2tlLW9wYWNpdHk9Ii4wNSIvPjwvZz48L3N2Zz4=')] opacity-30"></div>
         <div className="relative z-10">
           {/* Header */}
           <div className="text-center mb-16 px-4">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-gray-900">
               Your Trusted Financial Partner
             </h1>
-            <p className="text-xl mb-8 text-blue-100 max-w-3xl mx-auto">
+            <p className="text-xl mb-8 text-gray-600 max-w-3xl mx-auto">
               Helping you choose the best loan solutions with expert comparisons and lowest rates across leading banks
             </p>
           </div>
@@ -249,25 +241,25 @@ export const Home = () => {
               >
                 {heroCards.map((card, index) => (
                   <div key={index} className="w-full flex-shrink-0">
-                    <div className="px-4 sm:px-8 md:px-16 lg:px-24 py-8 text-white">
+                    <div className="px-4 sm:px-8 md:px-16 lg:px-24 py-8">
                       <div className="grid lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
                         {/* Content */}
                         <div className="animate-fade-in">
                           <div className="flex items-center mb-6">
-                            <div className="w-14 h-14 bg-amber-500/90 rounded-lg flex items-center justify-center mr-4 shadow-lg">
-                              <card.icon className="w-7 h-7 text-blue-900" />
+                            <div className="w-14 h-14 bg-blue-600 rounded-lg flex items-center justify-center mr-4 shadow-lg">
+                              <card.icon className="w-7 h-7 text-white" />
                             </div>
                             <div>
-                              <h2 className="text-3xl md:text-4xl font-bold">{card.title}</h2>
-                              <p className="text-lg text-blue-100">{card.subtitle}</p>
+                              <h2 className="text-3xl md:text-4xl font-bold text-gray-900">{card.title}</h2>
+                              <p className="text-lg text-gray-600">{card.subtitle}</p>
                             </div>
                           </div>
-                          <p className="text-xl mb-8 text-blue-50 leading-relaxed">
+                          <p className="text-xl mb-8 text-gray-700 leading-relaxed">
                             {card.description}
                           </p>
                           <div className="flex flex-col sm:flex-row gap-4 mb-8">
                             <Link to={card.buttonLink}>
-                              <Button size="lg" variant="secondary" className="bg-amber-500 text-blue-900 hover:bg-amber-400 font-semibold shadow-lg">
+                              <Button size="lg" className="bg-blue-600 text-white hover:bg-blue-700 font-semibold shadow-lg">
                                 {card.buttonText}
                               </Button>
                             </Link>
@@ -297,7 +289,7 @@ export const Home = () => {
                     key={index}
                     onClick={() => setCurrentHeroCard(index)}
                     className={`h-1 rounded-full transition-all duration-300 ${
-                      index === currentHeroCard ? 'bg-amber-400 w-8' : 'bg-blue-300 w-6'
+                      index === currentHeroCard ? 'bg-blue-600 w-8' : 'bg-gray-300 w-6'
                     }`}
                     aria-label={`Go to card ${index + 1}`}
                   />
@@ -308,17 +300,17 @@ export const Home = () => {
 
           {/* Additional Stats */}
           <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto px-4">
-            <div className="text-center">
-              <div className="text-4xl font-bold mb-2 text-amber-400">585+ Cr</div>
-              <div className="text-blue-100 text-sm uppercase tracking-wider">Business</div>
+            <div className="text-center bg-white rounded-xl p-6 shadow-lg">
+              <div className="text-4xl font-bold mb-2 text-blue-600">₹585 Cr+</div>
+              <div className="text-gray-600 text-sm uppercase tracking-wider">Loans Disbursed</div>
             </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold mb-2 text-amber-400">24-48 Hours</div>
-              <div className="text-blue-100 text-sm uppercase tracking-wider">Quick Approval</div>
+            <div className="text-center bg-white rounded-xl p-6 shadow-lg">
+              <div className="text-4xl font-bold mb-2 text-green-600">626 Cases+</div>
+              <div className="text-gray-600 text-sm uppercase tracking-wider">Successfully Processed</div>
             </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold mb-2 text-amber-400">100% Secure</div>
-              <div className="text-blue-100 text-sm uppercase tracking-wider">Safe & Trusted</div>
+            <div className="text-center bg-white rounded-xl p-6 shadow-lg">
+              <div className="text-4xl font-bold mb-2 text-purple-600">Pan India</div>
+              <div className="text-gray-600 text-sm uppercase tracking-wider">Across Various Locations</div>
             </div>
           </div>
         </div>
@@ -461,31 +453,31 @@ export const Home = () => {
       {/* FAQ Section */}
       <FAQ />
 
-      <section className="py-24 bg-blue-600 text-white relative overflow-hidden">
+      <section className="py-24 bg-gradient-to-br from-blue-50 to-indigo-100 relative overflow-hidden">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <h2 className="text-4xl md:text-6xl font-bold mb-6 animate-fade-in-up">
+          <h2 className="text-4xl md:text-6xl font-bold mb-6 animate-fade-in-up text-gray-900">
             Ready to Get Started?
           </h2>
-          <p className="text-xl md:text-2xl mb-12 text-blue-100 max-w-3xl mx-auto animate-fade-in-up" style={{animationDelay: '0.2s'}}>
+          <p className="text-xl md:text-2xl mb-12 text-gray-600 max-w-3xl mx-auto animate-fade-in-up" style={{animationDelay: '0.2s'}}>
             Join thousands of satisfied customers and get the best financial products today
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center animate-fade-in-up" style={{animationDelay: '0.4s'}}>
             <Link to="/loans/personal">
-              <button className="bg-white text-blue-600 px-10 py-4 rounded-xl font-semibold hover:bg-blue-50 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 text-lg">
+              <button className="bg-blue-600 text-white px-10 py-4 rounded-xl font-semibold hover:bg-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 text-lg">
                 Apply for Loan
               </button>
             </Link>
             <Link to="/contact">
-              <button className="bg-transparent border-2 border-white text-white px-10 py-4 rounded-xl font-semibold hover:bg-white hover:text-blue-600 transition-all duration-300 text-lg">
+              <button className="bg-white border-2 border-blue-600 text-blue-600 px-10 py-4 rounded-xl font-semibold hover:bg-blue-50 transition-all duration-300 text-lg shadow-md">
                 Contact Us
               </button>
             </Link>
           </div>
         </div>
         
-        <div className="absolute top-20 left-10 w-20 h-20 bg-purple-400/20 rounded-full animate-float"></div>
-        <div className="absolute bottom-20 right-10 w-32 h-32 bg-blue-400/20 rounded-full animate-float" style={{animationDelay: '1s'}}></div>
-        <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-white/10 rounded-full animate-float" style={{animationDelay: '2s'}}></div>
+        <div className="absolute top-20 left-10 w-20 h-20 bg-blue-200/30 rounded-full animate-float"></div>
+        <div className="absolute bottom-20 right-10 w-32 h-32 bg-indigo-200/30 rounded-full animate-float" style={{animationDelay: '1s'}}></div>
+        <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-purple-200/30 rounded-full animate-float" style={{animationDelay: '2s'}}></div>
       </section>
     </div>
   );

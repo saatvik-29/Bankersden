@@ -27,12 +27,6 @@ export const EducationLoan = () => {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Content - Left Side */}
             <div className="space-y-8">
-              {/* Trust Badge */}
-              <div className="inline-flex items-center bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-semibold">
-                <BookOpen className="w-4 h-4 mr-2" />
-                Empowering 12,000+ Students
-              </div>
-              
               <div>
                 <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-blue-900 mb-3 leading-none">
                   EDUCATION

@@ -23,7 +23,7 @@ const __dirname = path.dirname(__filename);
 
 const app = express();
 const smtpConfig = getSmtpConfig();
-const PORT = smtpConfig.port;
+const PORT = process.env.PORT || 5000;
 
 // Connect to MongoDB (non-blocking)
 connectDB().catch(err => {
@@ -362,6 +362,6 @@ app.listen(PORT, () => {
   console.log('Email Configuration:');
   console.log('SMTP User:', smtpConfig.user);
   console.log('Admin Email:', smtpConfig.adminEmail);
-  console.log('Port:', smtpConfig.port);
+  console.log('SMTP Port:', smtpConfig.smtpPort);
   console.log('Default admin credentials: admin / admin123');
 });

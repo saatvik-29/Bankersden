@@ -44,12 +44,6 @@ export const HomeLoan = () => {
           <div className="grid lg:grid-cols-2 gap-20 items-center">
             {/* Content */}
             <div className="space-y-8">
-              {/* Trust Badge */}
-              <div className="inline-flex items-center bg-purple-50 text-purple-700 px-4 py-2 rounded-full text-sm font-semibold">
-                <CheckCircle className="w-4 h-4 mr-2" />
-                Trusted by 10,000+ Homeowners
-              </div>
-              
               <div>
                 <h1 className="text-6xl md:text-7xl font-extrabold text-purple-900 mb-3 leading-none">
                   HOME LOAN

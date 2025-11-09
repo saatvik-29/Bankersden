@@ -26,12 +26,6 @@ export const PropertyLoan = () => {
         <div className="grid lg:grid-cols-2 items-center">
           {/* Content - Left Side with Padding */}
           <div className="py-20 px-4 sm:px-6 lg:px-12 xl:px-20 space-y-8">
-            {/* Trust Badge */}
-            <div className="inline-flex items-center bg-teal-50 text-teal-700 px-4 py-2 rounded-full text-sm font-semibold">
-              <Home className="w-4 h-4 mr-2" />
-              Trusted by 8,000+ Property Owners
-            </div>
-            
             <div>
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-teal-900 mb-3 leading-none">
                 LOAN AGAINST PROPERTY

@@ -49,7 +49,7 @@ Remember, a CIBIL score above 750 gets you the best loan terms and interest rate
       date: '2024-01-15',
       category: 'Credit Score',
       readTime: '5 min read',
-      image: '/blog/cibil-score.jpg',
+      image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&q=80',
       icon: TrendingUp
     },
     {
@@ -93,7 +93,7 @@ Remember, a CIBIL score above 750 gets you the best loan terms and interest rate
       date: '2024-01-10',
       category: 'Home Loans',
       readTime: '7 min read',
-      image: '/blog/home-loan-vs-rent.jpg',
+      image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&q=80',
       icon: Shield
     },
     {
@@ -146,7 +146,7 @@ Choose based on your comfort and financial goals.`,
       date: '2024-01-05',
       category: 'EMI Planning',
       readTime: '6 min read',
-      image: '/blog/emi-calculator.jpg',
+      image: 'https://images.unsplash.com/photo-1554224154-26032ffc0d07?w=800&q=80',
       icon: Calculator
     },
     {
@@ -206,7 +206,7 @@ Plan your business financing carefully and choose the right loan product for you
       date: '2023-12-28',
       category: 'Business Loans',
       readTime: '8 min read',
-      image: '/blog/business-loan.jpg',
+      image: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=800&q=80',
       icon: Target
     },
     {
@@ -275,7 +275,7 @@ Start today, stay consistent, and let compounding work its magic!`,
       date: '2023-12-20',
       category: 'Personal Finance',
       readTime: '9 min read',
-      image: '/blog/personal-finance.jpg',
+      image: 'https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=800&q=80',
       icon: Lightbulb
     },
     {
@@ -349,7 +349,7 @@ Insurance is not an expense - it's protection for your financial goals.`,
       date: '2023-12-15',
       category: 'Insurance',
       readTime: '7 min read',
-      image: '/blog/insurance-planning.jpg',
+      image: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&q=80',
       icon: Shield
     }
   ];
@@ -363,17 +363,32 @@ Insurance is not an expense - it's protection for your financial goals.`,
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50">
-      {/* Hero Section */}
-      <div className="bg-gradient-to-r from-blue-600 to-indigo-700 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Hero Section - Lighter Design */}
+      <div className="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 py-20 relative overflow-hidden">
+        {/* Decorative Elements */}
+        <div className="absolute inset-0 opacity-30">
+          <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <pattern id="blog-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#3b82f6" strokeWidth="0.5"/>
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#blog-grid)" />
+          </svg>
+        </div>
+        
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-600 rounded-full mb-6 shadow-lg">
+              <BookOpen className="w-8 h-8 text-white" />
+            </div>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
               Bankers Den Insights
             </h1>
-            <p className="text-xl md:text-2xl max-w-3xl mx-auto">
+            <p className="text-xl md:text-2xl max-w-3xl mx-auto text-gray-700 font-semibold">
               Smart Financial Choices Made Simple
             </p>
-            <p className="text-lg mt-4 text-blue-100">
+            <p className="text-lg mt-4 text-gray-600">
               Financial tips, guides, and insights to help you make better decisions
             </p>
           </div>
@@ -402,9 +417,22 @@ Insurance is not an expense - it's protection for your financial goals.`,
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredPosts.map((post) => (
             <article key={post.id} className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden">
-              {/* Image Placeholder */}
-              <div className="h-48 bg-gradient-to-br from-blue-400 to-indigo-600 flex items-center justify-center">
-                <post.icon className="w-16 h-16 text-white" />
+              {/* Blog Image */}
+              <div className="h-48 bg-gradient-to-br from-blue-400 to-indigo-600 relative overflow-hidden group">
+                <img 
+                  src={post.image} 
+                  alt={post.title}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                  onError={(e) => {
+                    // Fallback to gradient with icon if image fails to load
+                    e.currentTarget.style.display = 'none';
+                    const iconDiv = e.currentTarget.nextElementSibling;
+                    if (iconDiv) iconDiv.classList.remove('hidden');
+                  }}
+                />
+                <div className="hidden absolute inset-0 flex items-center justify-center bg-gradient-to-br from-blue-400 to-indigo-600">
+                  <post.icon className="w-16 h-16 text-white" />
+                </div>
               </div>
               
               <div className="p-6">
