@@ -6,12 +6,11 @@ import {
   Star,
   Clock,
   Shield,
-  DollarSign,
-  Calendar,
   FileText,
   ArrowRight,
-  Percent
+  Home
 } from 'lucide-react';
+import propertyLoanImage from '../../assets/loanagainstprop.png';
 
 export const PropertyLoan = () => {
   const navigate = useNavigate();
@@ -22,67 +21,126 @@ export const PropertyLoan = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
-      <div className="bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+      {/* Hero Section - Image extends to edge */}
+      <section className="bg-white relative overflow-hidden">
+        <div className="grid lg:grid-cols-2 items-center">
+          {/* Content - Left Side with Padding */}
+          <div className="py-20 px-4 sm:px-6 lg:px-12 xl:px-20 space-y-8">
+            {/* Trust Badge */}
+            <div className="inline-flex items-center bg-teal-50 text-teal-700 px-4 py-2 rounded-full text-sm font-semibold">
+              <Home className="w-4 h-4 mr-2" />
+              Trusted by 8,000+ Property Owners
+            </div>
+            
             <div>
-              <div className="flex items-center mb-6">
-                <div className="w-16 h-16 bg-teal-500 rounded-xl flex items-center justify-center mr-4">
-                  <Building className="w-8 h-8 text-white" />
-                </div>
-                <div>
-                  <h1 className="text-4xl font-bold text-gray-900">Loan Against Property</h1>
-                  <p className="text-lg text-gray-600">Property Finance</p>
-                </div>
-              </div>
-              <p className="text-xl text-gray-700 mb-8">
-                Unlock the value of your property with loans against property. 
-                Get high loan amounts at competitive interest rates.
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-teal-900 mb-3 leading-none">
+                LOAN AGAINST PROPERTY
+              </h1>
+              <p className="text-xl md:text-2xl text-gray-400 font-light uppercase tracking-[0.3em]">
+                Unlock Your Property Value
               </p>
-              <div className="flex flex-wrap gap-4 mb-8">
-                <div className="bg-blue-50 px-4 py-2 rounded-lg">
-                  <span className="text-sm text-blue-600 font-medium">Interest Rate</span>
-                  <p className="text-2xl font-bold text-blue-900">10.5% - 16.0% p.a.</p>
-                </div>
-                <div className="bg-green-50 px-4 py-2 rounded-lg">
-                  <span className="text-sm text-green-600 font-medium">Loan Amount</span>
-                  <p className="text-2xl font-bold text-green-900">₹5L - ₹1Cr</p>
-                </div>
-                <div className="bg-purple-50 px-4 py-2 rounded-lg">
-                  <span className="text-sm text-purple-600 font-medium">Tenure</span>
-                  <p className="text-2xl font-bold text-purple-900">5 - 20 years</p>
-                </div>
+            </div>
+            
+            <p className="text-base md:text-lg text-gray-700 leading-relaxed max-w-lg">
+              Unlock the value of your property with <span className="font-semibold text-teal-900">high loan amounts</span> starting at 10.5% p.a. 
+              Get <span className="font-semibold text-teal-900">up to ₹1 crore</span> with flexible repayment options and competitive rates.
+            </p>
+            
+            {/* Key Benefits */}
+            <div className="grid grid-cols-2 gap-4 max-w-lg">
+              <div className="flex items-start space-x-2">
+                <CheckCircle className="w-5 h-5 text-teal-600 mt-0.5 flex-shrink-0" />
+                <span className="text-sm text-gray-700">High Loan Amount</span>
               </div>
-              <Button onClick={handleApplyNow} size="lg" className="w-full lg:w-auto">
+              <div className="flex items-start space-x-2">
+                <CheckCircle className="w-5 h-5 text-teal-600 mt-0.5 flex-shrink-0" />
+                <span className="text-sm text-gray-700">Competitive Rates</span>
+              </div>
+              <div className="flex items-start space-x-2">
+                <CheckCircle className="w-5 h-5 text-teal-600 mt-0.5 flex-shrink-0" />
+                <span className="text-sm text-gray-700">Long Tenure</span>
+              </div>
+              <div className="flex items-start space-x-2">
+                <CheckCircle className="w-5 h-5 text-teal-600 mt-0.5 flex-shrink-0" />
+                <span className="text-sm text-gray-700">Flexible Usage</span>
+              </div>
+            </div>
+            
+            <div className="flex items-center space-x-4 pt-2">
+              <Button 
+                onClick={handleApplyNow} 
+                size="lg" 
+                className="bg-teal-600 text-white hover:bg-teal-700 font-semibold shadow-xl hover:shadow-2xl rounded-full px-10 py-4 text-base transition-all duration-300 hover:scale-105"
+              >
                 Apply Now <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
+              <button 
+                onClick={() => navigate('/emi-calculator')}
+                className="text-teal-600 font-semibold hover:text-teal-800 transition-colors flex items-center"
+              >
+                Calculate EMI
+                <ArrowRight className="w-4 h-4 ml-1" />
+              </button>
             </div>
-            <div className="bg-gradient-to-br from-teal-50 to-cyan-100 rounded-2xl p-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">EMI Calculator</h3>
-              <div className="space-y-4">
-                <div className="flex justify-between items-center">
-                  <span className="text-gray-600">Loan Amount:</span>
-                  <span className="font-semibold">₹30,00,000</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-gray-600">Tenure:</span>
-                  <span className="font-semibold">15 years</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-gray-600">Interest Rate:</span>
-                  <span className="font-semibold">13.0% p.a.</span>
-                </div>
-                <hr className="my-4" />
-                <div className="flex justify-between items-center">
-                  <span className="text-lg font-semibold text-gray-900">Monthly EMI:</span>
-                  <span className="text-2xl font-bold text-teal-600">₹35,647</span>
-                </div>
+          </div>
+
+          {/* Image - Right Side, Edge to Edge */}
+          <div className="hidden lg:block h-full">
+            <img
+              src={propertyLoanImage}
+              alt="Loan Against Property illustration"
+              className="w-full h-full object-cover object-left"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <div className="bg-white py-8 border-t border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-3 gap-8 max-w-3xl">
+            <div className="text-center">
+              <p className="text-3xl font-bold text-teal-900">10.5% - 16%</p>
+              <p className="text-sm text-gray-600 mt-1">Interest Rate</p>
+            </div>
+            <div className="text-center">
+              <p className="text-3xl font-bold text-teal-900">₹5L - ₹1Cr</p>
+              <p className="text-sm text-gray-600 mt-1">Loan Amount</p>
+            </div>
+            <div className="text-center">
+              <p className="text-3xl font-bold text-teal-900">5 - 20 yrs</p>
+              <p className="text-sm text-gray-600 mt-1">Tenure</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* EMI Calculator Section */}
+      <div className="bg-white py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-gradient-to-br from-teal-50 to-white rounded-2xl p-8 border border-teal-200 shadow-lg max-w-2xl mx-auto">
+            <h3 className="text-2xl font-bold text-teal-900 mb-6 text-center">EMI Calculator</h3>
+            <div className="space-y-4">
+              <div className="flex justify-between items-center py-2 border-b border-teal-100">
+                <span className="text-gray-700">Loan Amount:</span>
+                <span className="font-semibold text-gray-900">₹30,00,000</span>
               </div>
-              <Button variant="outline" className="w-full mt-6" onClick={() => navigate('/emi-calculator')}>
-                Calculate Your EMI
-              </Button>
+              <div className="flex justify-between items-center py-2 border-b border-teal-100">
+                <span className="text-gray-700">Tenure:</span>
+                <span className="font-semibold text-gray-900">15 years</span>
+              </div>
+              <div className="flex justify-between items-center py-2 border-b border-teal-100">
+                <span className="text-gray-700">Interest Rate:</span>
+                <span className="font-semibold text-gray-900">13.0% p.a.</span>
+              </div>
+              <div className="flex justify-between items-center pt-4">
+                <span className="text-lg font-semibold text-teal-700">Monthly EMI:</span>
+                <span className="text-3xl font-bold text-teal-900">₹35,647</span>
+              </div>
             </div>
+            <Button variant="outline" className="w-full mt-6 border-teal-600 text-teal-600 hover:bg-teal-600 hover:text-white rounded-full" onClick={() => navigate('/emi-calculator')}>
+              Calculate Your EMI
+            </Button>
           </div>
         </div>
       </div>

@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { Calendar, User, ArrowRight, TrendingUp, Shield, Calculator, BookOpen, Target, Lightbulb } from 'lucide-react';
 
 interface BlogPost {
@@ -16,6 +15,8 @@ interface BlogPost {
 }
 
 export const Blog: React.FC = () => {
+  const [selectedPost, setSelectedPost] = React.useState<BlogPost | null>(null);
+  
   const blogPosts: BlogPost[] = [
     {
       id: '1',
@@ -438,7 +439,10 @@ Insurance is not an expense - it's protection for your financial goals.`,
                 </div>
                 
                 {/* Read More Button */}
-                <button className="group flex items-center text-blue-600 font-semibold hover:text-blue-700 transition-colors">
+                <button 
+                  onClick={() => setSelectedPost(post)}
+                  className="group flex items-center text-blue-600 font-semibold hover:text-blue-700 transition-colors"
+                >
                   Read Full Article
                   <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                 </button>
@@ -466,6 +470,119 @@ Insurance is not an expense - it's protection for your financial goals.`,
           </div>
         </div>
       </div>
+
+      {/* Full Article Modal */}
+      {selectedPost && (
+        <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4 overflow-y-auto">
+          <div className="bg-white rounded-2xl max-w-4xl w-full my-8 shadow-2xl">
+            {/* Modal Header */}
+            <div className="sticky top-0 bg-gradient-to-r from-blue-600 to-indigo-700 text-white p-6 rounded-t-2xl flex items-center justify-between">
+              <div className="flex items-center space-x-4">
+                <selectedPost.icon className="w-10 h-10" />
+                <div>
+                  <div className="text-sm text-blue-100">{selectedPost.category}</div>
+                  <h2 className="text-2xl font-bold">{selectedPost.title}</h2>
+                </div>
+              </div>
+              <button
+                onClick={() => setSelectedPost(null)}
+                className="text-white hover:bg-white/20 rounded-full p-2 transition-colors"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+
+            {/* Modal Content */}
+            <div className="p-8">
+              {/* Meta Info */}
+              <div className="flex items-center justify-between text-sm text-gray-600 mb-6 pb-6 border-b">
+                <div className="flex items-center space-x-6">
+                  <div className="flex items-center">
+                    <User className="w-4 h-4 mr-2" />
+                    {selectedPost.author}
+                  </div>
+                  <div className="flex items-center">
+                    <Calendar className="w-4 h-4 mr-2" />
+                    {new Date(selectedPost.date).toLocaleDateString('en-US', { 
+                      year: 'numeric', 
+                      month: 'long', 
+                      day: 'numeric' 
+                    })}
+                  </div>
+                  <span className="text-blue-600 font-medium">{selectedPost.readTime}</span>
+                </div>
+              </div>
+
+              {/* Article Content */}
+              <div className="prose prose-lg max-w-none">
+                {selectedPost.content.split('\n\n').map((paragraph, index) => {
+                  if (paragraph.startsWith('**') && paragraph.endsWith('**')) {
+                    return (
+                      <h3 key={index} className="text-2xl font-bold text-gray-900 mt-8 mb-4">
+                        {paragraph.replace(/\*\*/g, '')}
+                      </h3>
+                    );
+                  } else if (paragraph.startsWith('**') && paragraph.includes(':**')) {
+                    const [title, ...rest] = paragraph.split(':**');
+                    return (
+                      <div key={index} className="mb-4">
+                        <h4 className="text-xl font-bold text-gray-900 mb-2">
+                          {title.replace(/\*\*/g, '')}:
+                        </h4>
+                        <p className="text-gray-700 leading-relaxed">
+                          {rest.join(':**')}
+                        </p>
+                      </div>
+                    );
+                  } else if (paragraph.match(/^\d+\./)) {
+                    return (
+                      <div key={index} className="mb-4">
+                        <p className="text-gray-700 leading-relaxed font-medium">
+                          {paragraph.split('**').map((part, i) => 
+                            i % 2 === 1 ? <strong key={i} className="text-gray-900">{part}</strong> : part
+                          )}
+                        </p>
+                      </div>
+                    );
+                  } else if (paragraph.startsWith('-')) {
+                    return (
+                      <ul key={index} className="list-disc list-inside mb-4 space-y-2">
+                        {paragraph.split('\n').map((item, i) => (
+                          <li key={i} className="text-gray-700 leading-relaxed">
+                            {item.replace(/^-\s*/, '').split('**').map((part, j) => 
+                              j % 2 === 1 ? <strong key={j} className="text-gray-900">{part}</strong> : part
+                            )}
+                          </li>
+                        ))}
+                      </ul>
+                    );
+                  } else {
+                    return (
+                      <p key={index} className="text-gray-700 leading-relaxed mb-4">
+                        {paragraph.split('**').map((part, i) => 
+                          i % 2 === 1 ? <strong key={i} className="text-gray-900">{part}</strong> : part
+                        )}
+                      </p>
+                    );
+                  }
+                })}
+              </div>
+
+              {/* Close Button */}
+              <div className="mt-8 pt-6 border-t text-center">
+                <button
+                  onClick={() => setSelectedPost(null)}
+                  className="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+                >
+                  Close Article
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

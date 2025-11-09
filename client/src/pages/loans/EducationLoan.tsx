@@ -6,12 +6,11 @@ import {
   Star,
   Clock,
   Shield,
-  DollarSign,
-  Calendar,
   FileText,
   ArrowRight,
-  Percent
+  BookOpen
 } from 'lucide-react';
+import educationLoanImage from '../../assets/eduloan.png';
 
 export const EducationLoan = () => {
   const navigate = useNavigate();
@@ -22,67 +21,130 @@ export const EducationLoan = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
-      <div className="bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <div className="flex items-center mb-6">
-                <div className="w-16 h-16 bg-indigo-500 rounded-xl flex items-center justify-center mr-4">
-                  <GraduationCap className="w-8 h-8 text-white" />
-                </div>
-                <div>
-                  <h1 className="text-4xl font-bold text-gray-900">Education Loan</h1>
-                  <p className="text-lg text-gray-600">Education Finance</p>
-                </div>
+      {/* Hero Section - Blended with Image */}
+      <section className="py-20 relative overflow-hidden" style={{backgroundColor: '#fffef4'}}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            {/* Content - Left Side */}
+            <div className="space-y-8">
+              {/* Trust Badge */}
+              <div className="inline-flex items-center bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-semibold">
+                <BookOpen className="w-4 h-4 mr-2" />
+                Empowering 12,000+ Students
               </div>
-              <p className="text-xl text-gray-700 mb-8">
-                Invest in your future with education loans for India and abroad. 
-                Get comprehensive coverage for tuition fees and living expenses.
+              
+              <div>
+                <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-blue-900 mb-3 leading-none">
+                  EDUCATION
+                  <br />
+                  LOAN
+                </h1>
+                <p className="text-xl md:text-2xl text-gray-600 font-light uppercase tracking-[0.3em]">
+                  Invest In Your Future
+                </p>
+              </div>
+              
+              <p className="text-base md:text-lg text-gray-800 leading-relaxed max-w-lg">
+                Invest in your future with <span className="font-semibold text-blue-900">comprehensive education loans</span> starting at 9% p.a. 
+                Get <span className="font-semibold text-blue-900">up to ₹1.5 crore</span> for studies in India and abroad with flexible repayment.
               </p>
-              <div className="flex flex-wrap gap-4 mb-8">
-                <div className="bg-blue-50 px-4 py-2 rounded-lg">
-                  <span className="text-sm text-blue-600 font-medium">Interest Rate</span>
-                  <p className="text-2xl font-bold text-blue-900">9.0% - 14.0% p.a.</p>
+              
+              {/* Key Benefits */}
+              <div className="grid grid-cols-2 gap-4 max-w-lg">
+                <div className="flex items-start space-x-2">
+                  <CheckCircle className="w-5 h-5 text-blue-700 mt-0.5 flex-shrink-0" />
+                  <span className="text-sm text-gray-800">India & Abroad</span>
                 </div>
-                <div className="bg-green-50 px-4 py-2 rounded-lg">
-                  <span className="text-sm text-green-600 font-medium">Loan Amount</span>
-                  <p className="text-2xl font-bold text-green-900">₹1L - ₹1.5Cr</p>
+                <div className="flex items-start space-x-2">
+                  <CheckCircle className="w-5 h-5 text-blue-700 mt-0.5 flex-shrink-0" />
+                  <span className="text-sm text-gray-800">Moratorium Period</span>
                 </div>
-                <div className="bg-purple-50 px-4 py-2 rounded-lg">
-                  <span className="text-sm text-purple-600 font-medium">Tenure</span>
-                  <p className="text-2xl font-bold text-purple-900">5 - 15 years</p>
+                <div className="flex items-start space-x-2">
+                  <CheckCircle className="w-5 h-5 text-blue-700 mt-0.5 flex-shrink-0" />
+                  <span className="text-sm text-gray-800">100% Financing</span>
                 </div>
-              </div>
-              <Button onClick={handleApplyNow} size="lg" className="w-full lg:w-auto">
-                Apply Now <ArrowRight className="w-5 h-5 ml-2" />
-              </Button>
-            </div>
-            <div className="bg-gradient-to-br from-indigo-50 to-blue-100 rounded-2xl p-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">EMI Calculator</h3>
-              <div className="space-y-4">
-                <div className="flex justify-between items-center">
-                  <span className="text-gray-600">Loan Amount:</span>
-                  <span className="font-semibold">₹10,00,000</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-gray-600">Tenure:</span>
-                  <span className="font-semibold">10 years</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-gray-600">Interest Rate:</span>
-                  <span className="font-semibold">12.0% p.a.</span>
-                </div>
-                <hr className="my-4" />
-                <div className="flex justify-between items-center">
-                  <span className="text-lg font-semibold text-gray-900">Monthly EMI:</span>
-                  <span className="text-2xl font-bold text-indigo-600">₹14,347</span>
+                <div className="flex items-start space-x-2">
+                  <CheckCircle className="w-5 h-5 text-blue-700 mt-0.5 flex-shrink-0" />
+                  <span className="text-sm text-gray-800">Tax Benefits</span>
                 </div>
               </div>
-              <Button variant="outline" className="w-full mt-6" onClick={() => navigate('/emi-calculator')}>
-                Calculate Your EMI
-              </Button>
+              
+              <div className="flex items-center space-x-4 pt-2">
+                <Button 
+                  onClick={handleApplyNow} 
+                  size="lg" 
+                  className="bg-blue-600 text-white hover:bg-blue-700 font-semibold shadow-xl hover:shadow-2xl rounded-full px-10 py-4 text-base transition-all duration-300 hover:scale-105"
+                >
+                  Apply Now <ArrowRight className="w-5 h-5 ml-2" />
+                </Button>
+                <button 
+                  onClick={() => navigate('/emi-calculator')}
+                  className="text-blue-600 font-semibold hover:text-blue-800 transition-colors flex items-center"
+                >
+                  Calculate EMI
+                  <ArrowRight className="w-4 h-4 ml-1" />
+                </button>
+              </div>
             </div>
+
+            {/* Image - Right Side, Blended */}
+            <div className="hidden lg:flex justify-center items-center">
+              <img
+                src={educationLoanImage}
+                alt="Education Loan illustration"
+                className="w-full h-auto scale-110"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <div className="bg-white py-8 border-t border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-3 gap-8 max-w-3xl">
+            <div className="text-center">
+              <p className="text-3xl font-bold text-blue-900">9% - 14%</p>
+              <p className="text-sm text-gray-600 mt-1">Interest Rate</p>
+            </div>
+            <div className="text-center">
+              <p className="text-3xl font-bold text-blue-900">₹1L - ₹1.5Cr</p>
+              <p className="text-sm text-gray-600 mt-1">Loan Amount</p>
+            </div>
+            <div className="text-center">
+              <p className="text-3xl font-bold text-blue-900">5 - 15 yrs</p>
+              <p className="text-sm text-gray-600 mt-1">Tenure</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* EMI Calculator Section */}
+      <div className="bg-white py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-gradient-to-br from-blue-50 to-white rounded-2xl p-8 border border-blue-200 shadow-lg max-w-2xl mx-auto">
+            <h3 className="text-2xl font-bold text-blue-900 mb-6 text-center">EMI Calculator</h3>
+            <div className="space-y-4">
+              <div className="flex justify-between items-center py-2 border-b border-blue-100">
+                <span className="text-gray-700">Loan Amount:</span>
+                <span className="font-semibold text-gray-900">₹10,00,000</span>
+              </div>
+              <div className="flex justify-between items-center py-2 border-b border-blue-100">
+                <span className="text-gray-700">Tenure:</span>
+                <span className="font-semibold text-gray-900">10 years</span>
+              </div>
+              <div className="flex justify-between items-center py-2 border-b border-blue-100">
+                <span className="text-gray-700">Interest Rate:</span>
+                <span className="font-semibold text-gray-900">12.0% p.a.</span>
+              </div>
+              <div className="flex justify-between items-center pt-4">
+                <span className="text-lg font-semibold text-blue-700">Monthly EMI:</span>
+                <span className="text-3xl font-bold text-blue-900">₹14,347</span>
+              </div>
+            </div>
+            <Button variant="outline" className="w-full mt-6 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white rounded-full" onClick={() => navigate('/emi-calculator')}>
+              Calculate Your EMI
+            </Button>
           </div>
         </div>
       </div>

@@ -1,18 +1,16 @@
 import { useNavigate } from 'react-router-dom';
 import { Button } from '../../components/Button';
-import { PersonalLoanHero } from '../../components/PersonalLoanHero';
 import { 
   User, 
   CheckCircle,
   Star,
   Clock,
   Shield,
-  DollarSign,
-  Calendar,
   FileText,
   ArrowRight,
-  Percent
+  Wallet
 } from 'lucide-react';
+import personalLoanImage from '../../assets/personalloan.png';
 
 export const PersonalLoan = () => {
   const navigate = useNavigate();
@@ -23,8 +21,127 @@ export const PersonalLoan = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Hero Section with Animations */}
-      <PersonalLoanHero />
+      {/* Hero Section - White Background with Blended Image */}
+      <section className="bg-white py-20 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            {/* Content - Left Side */}
+            <div className="space-y-8">
+              <div>
+                <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-gray-900 mb-3 leading-none">
+                  PERSONAL
+                  <br />
+                  LOAN
+                </h1>
+                <p className="text-xl md:text-2xl text-gray-500 font-light uppercase tracking-[0.3em]">
+                  Quick & Easy Approval
+                </p>
+              </div>
+              
+              <p className="text-base md:text-lg text-gray-700 leading-relaxed max-w-lg">
+                Get personal loans up to <span className="font-semibold text-gray-900">₹25 lakhs</span> with competitive interest rates starting from 8.5% p.a. 
+                <span className="font-semibold text-gray-900"> Minimal documentation</span> and quick approval in 24 hours.
+              </p>
+              
+              {/* Key Benefits */}
+              <div className="grid grid-cols-2 gap-4 max-w-lg">
+                <div className="flex items-start space-x-2">
+                  <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+                  <span className="text-sm text-gray-700">24 Hour Approval</span>
+                </div>
+                <div className="flex items-start space-x-2">
+                  <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+                  <span className="text-sm text-gray-700">No Collateral</span>
+                </div>
+                <div className="flex items-start space-x-2">
+                  <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+                  <span className="text-sm text-gray-700">Minimal Documents</span>
+                </div>
+                <div className="flex items-start space-x-2">
+                  <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+                  <span className="text-sm text-gray-700">Flexible Tenure</span>
+                </div>
+              </div>
+              
+              <div className="flex items-center space-x-4 pt-2">
+                <Button 
+                  onClick={handleApplyNow} 
+                  size="lg" 
+                  className="bg-green-600 text-white hover:bg-green-700 font-semibold shadow-xl hover:shadow-2xl rounded-full px-10 py-4 text-base transition-all duration-300 hover:scale-105"
+                >
+                  Apply Now <ArrowRight className="w-5 h-5 ml-2" />
+                </Button>
+                <button 
+                  onClick={() => navigate('/emi-calculator')}
+                  className="text-green-600 font-semibold hover:text-green-800 transition-colors flex items-center"
+                >
+                  Calculate EMI
+                  <ArrowRight className="w-4 h-4 ml-1" />
+                </button>
+              </div>
+            </div>
+
+            {/* Image - Right Side, Blended */}
+            <div className="hidden lg:flex justify-center items-center">
+              <img
+                src={personalLoanImage}
+                alt="Personal Loan illustration"
+                className="w-full h-auto scale-150"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <div className="bg-white py-8 border-t border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-3 gap-8 max-w-3xl">
+            <div className="text-center">
+              <p className="text-3xl font-bold text-gray-900">8.5% - 18%</p>
+              <p className="text-sm text-gray-600 mt-1">Interest Rate</p>
+            </div>
+            <div className="text-center">
+              <p className="text-3xl font-bold text-gray-900">₹1L - ₹25L</p>
+              <p className="text-sm text-gray-600 mt-1">Loan Amount</p>
+            </div>
+            <div className="text-center">
+              <p className="text-3xl font-bold text-gray-900">1 - 5 yrs</p>
+              <p className="text-sm text-gray-600 mt-1">Tenure</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* EMI Calculator Section */}
+      <div className="bg-white py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-gradient-to-br from-green-50 to-white rounded-2xl p-8 border border-green-200 shadow-lg max-w-2xl mx-auto">
+            <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">EMI Calculator</h3>
+            <div className="space-y-4">
+              <div className="flex justify-between items-center py-2 border-b border-green-100">
+                <span className="text-gray-700">Loan Amount:</span>
+                <span className="font-semibold text-gray-900">₹5,00,000</span>
+              </div>
+              <div className="flex justify-between items-center py-2 border-b border-green-100">
+                <span className="text-gray-700">Tenure:</span>
+                <span className="font-semibold text-gray-900">3 years</span>
+              </div>
+              <div className="flex justify-between items-center py-2 border-b border-green-100">
+                <span className="text-gray-700">Interest Rate:</span>
+                <span className="font-semibold text-gray-900">12.0% p.a.</span>
+              </div>
+              <div className="flex justify-between items-center pt-4">
+                <span className="text-lg font-semibold text-green-700">Monthly EMI:</span>
+                <span className="text-3xl font-bold text-green-600">₹16,607</span>
+              </div>
+            </div>
+            <Button variant="outline" className="w-full mt-6 border-green-600 text-green-600 hover:bg-green-600 hover:text-white rounded-full" onClick={() => navigate('/emi-calculator')}>
+              Calculate Your EMI
+            </Button>
+          </div>
+        </div>
+      </div>
 
       {/* Features Section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
