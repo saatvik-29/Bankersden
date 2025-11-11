@@ -90,31 +90,31 @@ export const FAQ: React.FC = () => {
     : faqData.filter(item => item.category === selectedCategory);
 
   return (
-    <section className="py-16 bg-gradient-to-br from-gray-50 to-blue-50">
+    <section className="py-12 md:py-16 bg-gray-50">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-600 text-white rounded-full mb-6">
-            <HelpCircle className="w-8 h-8" />
+        <div className="text-center mb-8 md:mb-12">
+          <div className="inline-flex items-center justify-center w-12 h-12 md:w-16 md:h-16 bg-gray-800 text-white rounded-full mb-4 md:mb-6">
+            <HelpCircle className="w-6 h-6 md:w-8 md:h-8" />
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-3 md:mb-4">
             Frequently Asked Questions
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
             Get answers to common questions about loans, eligibility, and our services
           </p>
         </div>
 
         {/* Category Filter */}
-        <div className="flex flex-wrap justify-center gap-3 mb-8">
+        <div className="flex flex-wrap justify-center gap-2 md:gap-3 mb-6 md:mb-8">
           {categories.map((category) => (
             <button
               key={category}
               onClick={() => setSelectedCategory(category)}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+              className={`px-3 md:px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
                 selectedCategory === category
-                  ? 'bg-blue-600 text-white shadow-lg'
-                  : 'bg-white text-gray-600 hover:bg-blue-50 hover:text-blue-600 shadow-md'
+                  ? 'bg-gray-800 text-white'
+                  : 'bg-white text-gray-600 hover:bg-gray-100 hover:text-gray-800 border border-gray-200'
               }`}
             >
               {category}
@@ -123,29 +123,29 @@ export const FAQ: React.FC = () => {
         </div>
 
         {/* FAQ Items */}
-        <div className="space-y-4">
+        <div className="space-y-3 md:space-y-4">
           {filteredFAQs.map((item) => (
             <div
               key={item.id}
-              className="bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden"
+              className="bg-white rounded-xl border border-gray-200 hover:shadow-lg transition-all duration-300 overflow-hidden"
             >
               <button
                 onClick={() => toggleItem(item.id)}
-                className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors duration-200"
+                className="w-full px-4 md:px-6 py-3 md:py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors duration-200"
               >
                 <div className="flex-1">
                   <div className="flex items-center mb-1">
-                    <span className="inline-block bg-blue-100 text-blue-800 text-xs font-semibold px-2 py-1 rounded-full mr-3">
+                    <span className="inline-block bg-gray-100 text-gray-800 text-xs font-semibold px-2 py-1 rounded-full mr-2 md:mr-3">
                       {item.category}
                     </span>
                   </div>
-                  <h3 className="text-lg font-semibold text-gray-900 pr-4">
+                  <h3 className="text-base md:text-lg font-semibold text-gray-900 pr-2 md:pr-4">
                     {item.question}
                   </h3>
                 </div>
                 <div className="flex-shrink-0">
                   {openItems.includes(item.id) ? (
-                    <ChevronUp className="w-5 h-5 text-blue-600" />
+                    <ChevronUp className="w-5 h-5 text-gray-800" />
                   ) : (
                     <ChevronDown className="w-5 h-5 text-gray-400" />
                   )}
@@ -153,9 +153,9 @@ export const FAQ: React.FC = () => {
               </button>
               
               {openItems.includes(item.id) && (
-                <div className="px-6 pb-4 animate-fade-in">
-                  <div className="border-t border-gray-100 pt-4">
-                    <p className="text-gray-700 leading-relaxed">
+                <div className="px-4 md:px-6 pb-3 md:pb-4 animate-fade-in">
+                  <div className="border-t border-gray-100 pt-3 md:pt-4">
+                    <p className="text-gray-700 leading-relaxed text-sm md:text-base">
                       {item.answer}
                     </p>
                   </div>
@@ -166,16 +166,16 @@ export const FAQ: React.FC = () => {
         </div>
 
         {/* Contact CTA */}
-        <div className="mt-12 text-center">
-          <div className="bg-gradient-to-r from-blue-600 to-indigo-700 text-white rounded-2xl p-8">
-            <h3 className="text-2xl font-bold mb-4">Still have questions?</h3>
-            <p className="text-blue-100 mb-6">
+        <div className="mt-8 md:mt-12 text-center">
+          <div className="bg-gray-800 text-white rounded-xl p-6 md:p-8">
+            <h3 className="text-xl md:text-2xl font-bold mb-3 md:mb-4">Still have questions?</h3>
+            <p className="text-gray-300 mb-4 md:mb-6">
               Our expert team is here to help you with personalized advice
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">
               <a
                 href="/contact"
-                className="inline-block bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
+                className="inline-block bg-white text-gray-800 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
               >
                 Contact Us
               </a>

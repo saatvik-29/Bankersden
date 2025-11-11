@@ -314,7 +314,7 @@ export const BusinessLoan = () => {
               Get the funding you need to take your business to the next level
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button onClick={handleApplyNow} size="lg" variant="white">
+              <Button onClick={handleApplyNow} size="lg" variant="primary" className="bg-white text-purple-600 hover:bg-gray-100">
                 Apply Now
               </Button>
               <Button onClick={() => navigate('/contact')} size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-purple-600">

@@ -21,56 +21,55 @@ export const CarLoan = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Hero Section - Image extends to edge */}
-      <section className="bg-white relative overflow-hidden">
-        <div className="grid lg:grid-cols-2 items-center">
+      {/* Hero Section - Brown Theme */}
+      <section className="bg-white pt-20 md:pt-24 pb-16 relative overflow-hidden">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Content - Left Side with Padding */}
-          <div className="py-20 px-4 sm:px-6 lg:px-12 xl:px-20 space-y-8">
+          <div className="px-4 sm:px-6 lg:px-12 xl:px-20 space-y-6">
             <div>
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-orange-900 mb-3 leading-none">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#7c2d12] mb-2 leading-tight">
                 CAR LOAN
               </h1>
-              <p className="text-xl md:text-2xl text-gray-400 font-light uppercase tracking-[0.3em]">
+              <p className="text-lg md:text-xl text-gray-600 font-medium uppercase tracking-wide">
                 Drive Your Dream
               </p>
             </div>
             
             <p className="text-base md:text-lg text-gray-700 leading-relaxed max-w-lg">
-              Drive your dream car with <span className="font-semibold text-orange-900">easy EMI options</span> starting at 8% p.a. 
-              Get <span className="font-semibold text-orange-900">up to 90% financing</span> on both new and used cars with quick approval.
+              Drive your dream car with <span className="font-semibold text-[#7c2d12]">easy EMI options</span> starting at 8% p.a. 
+              Get <span className="font-semibold text-[#7c2d12]">up to 90% financing</span> on both new and used cars with quick approval.
             </p>
             
             {/* Key Benefits */}
-            <div className="grid grid-cols-2 gap-4 max-w-lg">
+            <div className="grid grid-cols-2 gap-3 max-w-lg">
               <div className="flex items-start space-x-2">
-                <CheckCircle className="w-5 h-5 text-orange-600 mt-0.5 flex-shrink-0" />
+                <CheckCircle className="w-4 h-4 text-[#7c2d12] mt-0.5 flex-shrink-0" />
                 <span className="text-sm text-gray-700">Instant Approval</span>
               </div>
               <div className="flex items-start space-x-2">
-                <CheckCircle className="w-5 h-5 text-orange-600 mt-0.5 flex-shrink-0" />
+                <CheckCircle className="w-4 h-4 text-[#7c2d12] mt-0.5 flex-shrink-0" />
                 <span className="text-sm text-gray-700">Up to 90% Financing</span>
               </div>
               <div className="flex items-start space-x-2">
-                <CheckCircle className="w-5 h-5 text-orange-600 mt-0.5 flex-shrink-0" />
+                <CheckCircle className="w-4 h-4 text-[#7c2d12] mt-0.5 flex-shrink-0" />
                 <span className="text-sm text-gray-700">New & Used Cars</span>
               </div>
               <div className="flex items-start space-x-2">
-                <CheckCircle className="w-5 h-5 text-orange-600 mt-0.5 flex-shrink-0" />
+                <CheckCircle className="w-4 h-4 text-[#7c2d12] mt-0.5 flex-shrink-0" />
                 <span className="text-sm text-gray-700">Flexible Tenure</span>
               </div>
             </div>
             
-            <div className="flex items-center space-x-4 pt-2">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
               <Button 
                 onClick={handleApplyNow} 
-                size="lg" 
-                className="bg-orange-600 text-white hover:bg-orange-700 font-semibold shadow-xl hover:shadow-2xl rounded-full px-10 py-4 text-base transition-all duration-300 hover:scale-105"
+                className="bg-[#7c2d12] text-white hover:bg-[#92400e] font-semibold px-6 py-3 rounded-lg text-sm transition-all duration-200"
               >
-                Apply Now <ArrowRight className="w-5 h-5 ml-2" />
+                Apply Now <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
               <button 
                 onClick={() => navigate('/emi-calculator')}
-                className="text-orange-600 font-semibold hover:text-orange-800 transition-colors flex items-center"
+                className="text-[#7c2d12] font-medium hover:text-[#92400e] transition-colors flex items-center text-sm"
               >
                 Calculate EMI
                 <ArrowRight className="w-4 h-4 ml-1" />
@@ -94,15 +93,15 @@ export const CarLoan = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-3 gap-8 max-w-3xl">
             <div className="text-center">
-              <p className="text-3xl font-bold text-orange-900">8% - 15%</p>
+              <p className="text-3xl font-bold text-[#7c2d12]">8% - 15%</p>
               <p className="text-sm text-gray-600 mt-1">Interest Rate</p>
             </div>
             <div className="text-center">
-              <p className="text-3xl font-bold text-orange-900">₹1L - ₹50L</p>
+              <p className="text-3xl font-bold text-[#7c2d12]">₹1L - ₹50L</p>
               <p className="text-sm text-gray-600 mt-1">Loan Amount</p>
             </div>
             <div className="text-center">
-              <p className="text-3xl font-bold text-orange-900">1 - 7 yrs</p>
+              <p className="text-3xl font-bold text-[#7c2d12]">1 - 7 yrs</p>
               <p className="text-sm text-gray-600 mt-1">Tenure</p>
             </div>
           </div>
@@ -112,27 +111,27 @@ export const CarLoan = () => {
       {/* EMI Calculator Section */}
       <div className="bg-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-gradient-to-br from-orange-50 to-white rounded-2xl p-8 border border-orange-200 shadow-lg max-w-2xl mx-auto">
-            <h3 className="text-2xl font-bold text-orange-900 mb-6 text-center">EMI Calculator</h3>
+          <div className="bg-gradient-to-br from-amber-50 to-white rounded-2xl p-8 border border-amber-200 shadow-lg max-w-2xl mx-auto">
+            <h3 className="text-2xl font-bold text-[#7c2d12] mb-6 text-center">EMI Calculator</h3>
             <div className="space-y-4">
-              <div className="flex justify-between items-center py-2 border-b border-orange-100">
+              <div className="flex justify-between items-center py-2 border-b border-amber-100">
                 <span className="text-gray-700">Loan Amount:</span>
                 <span className="font-semibold text-gray-900">₹8,00,000</span>
               </div>
-              <div className="flex justify-between items-center py-2 border-b border-orange-100">
+              <div className="flex justify-between items-center py-2 border-b border-amber-100">
                 <span className="text-gray-700">Tenure:</span>
                 <span className="font-semibold text-gray-900">5 years</span>
               </div>
-              <div className="flex justify-between items-center py-2 border-b border-orange-100">
+              <div className="flex justify-between items-center py-2 border-b border-amber-100">
                 <span className="text-gray-700">Interest Rate:</span>
                 <span className="font-semibold text-gray-900">11.0% p.a.</span>
               </div>
               <div className="flex justify-between items-center pt-4">
-                <span className="text-lg font-semibold text-orange-700">Monthly EMI:</span>
-                <span className="text-3xl font-bold text-orange-900">₹17,389</span>
+                <span className="text-lg font-semibold text-[#7c2d12]">Monthly EMI:</span>
+                <span className="text-3xl font-bold text-[#7c2d12]">₹17,389</span>
               </div>
             </div>
-            <Button variant="outline" className="w-full mt-6 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white rounded-full" onClick={() => navigate('/emi-calculator')}>
+            <Button variant="outline" className="w-full mt-6 border-[#7c2d12] text-[#7c2d12] hover:bg-[#7c2d12] hover:text-white rounded-lg" onClick={() => navigate('/emi-calculator')}>
               Calculate Your EMI
             </Button>
           </div>
@@ -278,7 +277,7 @@ export const CarLoan = () => {
           {/* Processing Details */}
           <div className="bg-white rounded-xl shadow-lg p-8">
             <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
-              <Clock className="w-6 h-6 text-orange-500 mr-2" />
+              <Clock className="w-6 h-6 text-[#7c2d12] mr-2" />
               Processing Details
             </h3>
             <div className="space-y-4">
@@ -304,20 +303,20 @@ export const CarLoan = () => {
       </div>
 
       {/* CTA Section */}
-      <div className="bg-gradient-to-r from-orange-600 to-amber-700">
+      <div className="bg-gradient-to-r from-[#7c2d12] to-[#92400e]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="text-center">
             <h2 className="text-3xl font-bold text-white mb-4">
               Ready to Drive Your Dream Car?
             </h2>
-            <p className="text-xl text-orange-100 mb-8">
+            <p className="text-xl text-amber-100 mb-8">
               Get the best car loan rates and drive away today
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button onClick={handleApplyNow} size="lg" variant="white">
+              <Button onClick={handleApplyNow} size="lg" className="bg-white text-[#7c2d12] hover:bg-amber-50">
                 Apply Now
               </Button>
-              <Button onClick={() => navigate('/contact')} size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-orange-600">
+              <Button onClick={() => navigate('/contact')} size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-[#7c2d12]">
                 Contact Us
               </Button>
             </div>

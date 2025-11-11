@@ -314,7 +314,7 @@ export const PropertyLoan = () => {
               Get high loan amounts against your property at competitive rates
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button onClick={handleApplyNow} size="lg" variant="white">
+              <Button onClick={handleApplyNow} size="lg" variant="primary" className="bg-white text-teal-600 hover:bg-gray-100">
                 Apply Now
               </Button>
               <Button onClick={() => navigate('/contact')} size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-teal-600">

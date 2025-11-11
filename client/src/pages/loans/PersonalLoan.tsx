@@ -21,59 +21,58 @@ export const PersonalLoan = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Hero Section - White Background with Blended Image */}
-      <section className="bg-white py-20 relative overflow-hidden">
+      {/* Hero Section - Green Theme */}
+      <section className="bg-white pt-20 md:pt-24 pb-16 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Content - Left Side */}
-            <div className="space-y-8">
+            <div className="space-y-6">
               <div>
-                <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-gray-900 mb-3 leading-none">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#15803d] mb-2 leading-tight">
                   PERSONAL
                   <br />
                   LOAN
                 </h1>
-                <p className="text-xl md:text-2xl text-gray-500 font-light uppercase tracking-[0.3em]">
+                <p className="text-lg md:text-xl text-gray-600 font-medium uppercase tracking-wide">
                   Quick & Easy Approval
                 </p>
               </div>
               
               <p className="text-base md:text-lg text-gray-700 leading-relaxed max-w-lg">
-                Get personal loans up to <span className="font-semibold text-gray-900">₹25 lakhs</span> with competitive interest rates starting from 8.5% p.a. 
-                <span className="font-semibold text-gray-900"> Minimal documentation</span> and quick approval in 24 hours.
+                Get personal loans up to <span className="font-semibold text-[#15803d]">₹25 lakhs</span> with competitive interest rates starting from 8.5% p.a. 
+                <span className="font-semibold text-[#15803d]"> Minimal documentation</span> and quick approval in 24 hours.
               </p>
               
               {/* Key Benefits */}
-              <div className="grid grid-cols-2 gap-4 max-w-lg">
+              <div className="grid grid-cols-2 gap-3 max-w-lg">
                 <div className="flex items-start space-x-2">
-                  <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-[#15803d] mt-0.5 flex-shrink-0" />
                   <span className="text-sm text-gray-700">24 Hour Approval</span>
                 </div>
                 <div className="flex items-start space-x-2">
-                  <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-[#15803d] mt-0.5 flex-shrink-0" />
                   <span className="text-sm text-gray-700">No Collateral</span>
                 </div>
                 <div className="flex items-start space-x-2">
-                  <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-[#15803d] mt-0.5 flex-shrink-0" />
                   <span className="text-sm text-gray-700">Minimal Documents</span>
                 </div>
                 <div className="flex items-start space-x-2">
-                  <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
+                  <CheckCircle className="w-4 h-4 text-[#15803d] mt-0.5 flex-shrink-0" />
                   <span className="text-sm text-gray-700">Flexible Tenure</span>
                 </div>
               </div>
               
-              <div className="flex items-center space-x-4 pt-2">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
                 <Button 
                   onClick={handleApplyNow} 
-                  size="lg" 
-                  className="bg-green-600 text-white hover:bg-green-700 font-semibold shadow-xl hover:shadow-2xl rounded-full px-10 py-4 text-base transition-all duration-300 hover:scale-105"
+                  className="bg-[#15803d] text-white hover:bg-[#166534] font-semibold px-6 py-3 rounded-lg text-sm transition-all duration-200"
                 >
-                  Apply Now <ArrowRight className="w-5 h-5 ml-2" />
+                  Apply Now <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>
                 <button 
                   onClick={() => navigate('/emi-calculator')}
-                  className="text-green-600 font-semibold hover:text-green-800 transition-colors flex items-center"
+                  className="text-[#15803d] font-medium hover:text-[#166534] transition-colors flex items-center text-sm"
                 >
                   Calculate EMI
                   <ArrowRight className="w-4 h-4 ml-1" />
@@ -98,15 +97,15 @@ export const PersonalLoan = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-3 gap-8 max-w-3xl">
             <div className="text-center">
-              <p className="text-3xl font-bold text-gray-900">8.5% - 18%</p>
+              <p className="text-3xl font-bold text-[#15803d]">8.5% - 18%</p>
               <p className="text-sm text-gray-600 mt-1">Interest Rate</p>
             </div>
             <div className="text-center">
-              <p className="text-3xl font-bold text-gray-900">₹1L - ₹25L</p>
+              <p className="text-3xl font-bold text-[#15803d]">₹1L - ₹25L</p>
               <p className="text-sm text-gray-600 mt-1">Loan Amount</p>
             </div>
             <div className="text-center">
-              <p className="text-3xl font-bold text-gray-900">1 - 5 yrs</p>
+              <p className="text-3xl font-bold text-[#15803d]">1 - 5 yrs</p>
               <p className="text-sm text-gray-600 mt-1">Tenure</p>
             </div>
           </div>
@@ -117,7 +116,7 @@ export const PersonalLoan = () => {
       <div className="bg-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-gradient-to-br from-green-50 to-white rounded-2xl p-8 border border-green-200 shadow-lg max-w-2xl mx-auto">
-            <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">EMI Calculator</h3>
+            <h3 className="text-2xl font-bold text-[#15803d] mb-6 text-center">EMI Calculator</h3>
             <div className="space-y-4">
               <div className="flex justify-between items-center py-2 border-b border-green-100">
                 <span className="text-gray-700">Loan Amount:</span>
@@ -132,11 +131,11 @@ export const PersonalLoan = () => {
                 <span className="font-semibold text-gray-900">12.0% p.a.</span>
               </div>
               <div className="flex justify-between items-center pt-4">
-                <span className="text-lg font-semibold text-green-700">Monthly EMI:</span>
-                <span className="text-3xl font-bold text-green-600">₹16,607</span>
+                <span className="text-lg font-semibold text-[#15803d]">Monthly EMI:</span>
+                <span className="text-3xl font-bold text-[#15803d]">₹16,607</span>
               </div>
             </div>
-            <Button variant="outline" className="w-full mt-6 border-green-600 text-green-600 hover:bg-green-600 hover:text-white rounded-full" onClick={() => navigate('/emi-calculator')}>
+            <Button variant="outline" className="w-full mt-6 border-[#15803d] text-[#15803d] hover:bg-[#15803d] hover:text-white rounded-lg" onClick={() => navigate('/emi-calculator')}>
               Calculate Your EMI
             </Button>
           </div>
@@ -154,27 +153,27 @@ export const PersonalLoan = () => {
             </h3>
             <ul className="space-y-3">
               <li className="flex items-start">
-                <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
+                <CheckCircle className="w-5 h-5 text-[#15803d] mr-3 mt-0.5 flex-shrink-0" />
                 <span className="text-gray-700">Quick approval in 24 hours</span>
               </li>
               <li className="flex items-start">
-                <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
+                <CheckCircle className="w-5 h-5 text-[#15803d] mr-3 mt-0.5 flex-shrink-0" />
                 <span className="text-gray-700">Minimal documentation</span>
               </li>
               <li className="flex items-start">
-                <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
+                <CheckCircle className="w-5 h-5 text-[#15803d] mr-3 mt-0.5 flex-shrink-0" />
                 <span className="text-gray-700">No collateral required</span>
               </li>
               <li className="flex items-start">
-                <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
+                <CheckCircle className="w-5 h-5 text-[#15803d] mr-3 mt-0.5 flex-shrink-0" />
                 <span className="text-gray-700">Flexible repayment options</span>
               </li>
               <li className="flex items-start">
-                <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
+                <CheckCircle className="w-5 h-5 text-[#15803d] mr-3 mt-0.5 flex-shrink-0" />
                 <span className="text-gray-700">Online application available</span>
               </li>
               <li className="flex items-start">
-                <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
+                <CheckCircle className="w-5 h-5 text-[#15803d] mr-3 mt-0.5 flex-shrink-0" />
                 <span className="text-gray-700">Instant loan disbursement</span>
               </li>
             </ul>
@@ -308,7 +307,7 @@ export const PersonalLoan = () => {
       </div>
 
       {/* CTA Section */}
-      <div className="bg-gradient-to-r from-green-600 to-emerald-700">
+      <div className="bg-gradient-to-r from-[#15803d] to-[#166534]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="text-center">
             <h2 className="text-3xl font-bold text-white mb-4">
@@ -318,10 +317,10 @@ export const PersonalLoan = () => {
               Get instant approval for your personal loan needs
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button onClick={handleApplyNow} size="lg" variant="white">
+              <Button onClick={handleApplyNow} size="lg" className="bg-white text-[#15803d] hover:bg-green-50">
                 Apply Now
               </Button>
-              <Button onClick={() => navigate('/contact')} size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-green-600">
+              <Button onClick={() => navigate('/contact')} size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-[#15803d]">
                 Contact Us
               </Button>
             </div>
